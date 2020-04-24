@@ -19,6 +19,9 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class Main2 extends Application {
     private Group group;
@@ -28,6 +31,11 @@ public class Main2 extends Application {
     private int pcCount = 0;
     private Scene scene;
     private Stage stage;
+
+    ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+
+    ScheduledFuture<?> scheduledFuture;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -54,16 +62,22 @@ public class Main2 extends Application {
                 int finalI = i;
                 int finalJ = j;
                 imageView[i][j].setOnMouseClicked(event -> {
-                    if (event.getClickCount() == 2) {
-//                    remoteAccess(ip)
-                        System.out.println("doppelclick");
-                    } else if (event.getClickCount() == 1) {
-                        System.out.println("einzelclick");
-                        if (pingComputer()) {
-                            changeToGreen(imageView[finalI][finalJ]);
-                        } else {
-                            changeToRed(imageView[finalI][finalJ]);
+                    if (event.getClickCount() > 1) {
+                        if(scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
+                            scheduledFuture.cancel(false);
+//                           remoteAccess(ip)
+                             System.out.println("doppelclick");
                         }
+                    } else if (event.getClickCount() == 1) {
+                        scheduledFuture = executor.schedule(() -> {
+                            System.out.println("einzelclick");
+                            if (pingComputer()) {
+                                changeToGreen(imageView[finalI][finalJ]);
+                            } else {
+                                changeToRed(imageView[finalI][finalJ]);
+                            }
+                        }, 500, TimeUnit.MILLISECONDS);
+
                     }
                 });
                 group.getChildren().add(imageView[i][j]);
