@@ -1,4 +1,4 @@
-package it.bx.fallmerayer.tfo.rein.in.die.masse;
+package sample;
 
 import javafx.scene.image.ImageView;
 
