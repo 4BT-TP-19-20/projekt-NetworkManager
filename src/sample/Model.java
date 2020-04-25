@@ -79,7 +79,6 @@ public class Model implements Runnable {
     @Override
     public void run() {
         Main2 main = new Main2();
-
         if (pingComputer(this.computer)) {
             main.changeToGreen(this.computer);
         } else {

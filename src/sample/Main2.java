@@ -1,14 +1,11 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -17,9 +14,9 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -28,10 +25,12 @@ public class Main2 extends Application {
     //EpasCooles
     ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
     ScheduledFuture<?> scheduledFuture;
-
+    private Stage stage;
     private Group group;
     private Scene scene;
     private Computer[][] computer;
+    private static boolean canChange = true;
+    private Rectangle rectangle1, rectangle2;
     @Override
     public void start(Stage primaryStage) throws Exception {
         group = new Group();
@@ -41,7 +40,7 @@ public class Main2 extends Application {
         scene = new Scene(group, 700, 600);
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
-                ImageView imageView= new ImageView(new Image(new FileInputStream("PC_icon.png")));
+                ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png")));
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
@@ -58,9 +57,9 @@ public class Main2 extends Application {
                             thread.start();
                         }, 500, TimeUnit.MILLISECONDS);
 
-                    } else  {
+                    } else {
 
-                        if(scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
+                        if (scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
                             scheduledFuture.cancel(false);
                             remoteAccess(computer[finalI][finalJ]);
                             System.out.println("double");
@@ -75,12 +74,18 @@ public class Main2 extends Application {
                 ++labelCount;
             }
             xCoord += 100;
-            if (i == 0 || i == 2) {
-                Rectangle rectangle = new Rectangle(100, 600);
-                rectangle.setX(xCoord);
-                rectangle.setY(0);
-                rectangle.setFill(Color.DIMGRAY);
-                group.getChildren().add(rectangle);
+            if (i == 0) {
+                rectangle1 = new Rectangle(100, 600);
+                rectangle1.setX(xCoord);
+                rectangle1.setY(0);
+                rectangle1.setFill(Color.DIMGRAY);
+                group.getChildren().add(rectangle1);
+            }else if (i==2){
+                rectangle2 = new Rectangle(100, 600);
+                rectangle2.setX(xCoord);
+                rectangle2.setY(0);
+                rectangle2.setFill(Color.DIMGRAY);
+                group.getChildren().add(rectangle2);
             }
             xCoord += 100;
         }
@@ -88,91 +93,154 @@ public class Main2 extends Application {
         scene.setFill(Color.DARKGRAY);
         primaryStage.setMinWidth(300);
         primaryStage.setMinHeight(300);
-        /*
+
         scene.widthProperty().addListener(observable -> {   //change size
-            resize(rows, finalColums);
-            changeWidth(finalColums, rows);
+//            resize(rows, finalColums);
+            if (canChange) {
+//                canChange = false;
+//                System.out.println("changewith");
+//                changeWidth(4, 6);
+//                canChange = true;
+            }
         });
         scene.heightProperty().addListener(observable -> {
-            changeHeight(rows, finalColums);
-            resize(rows, finalColums);
+            if (canChange) {
+                canChange = false;
+                System.out.println("changeheight");
+                changeHeight(4, 6);
+                canChange = true;
+            }
+//            resize(rows, finalColums);
         });
-        */
+
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-    public void remoteAccess(Computer computer){
-        String ip = "192.168.43.80";
-        String userName = "Simon";
-        String password = "stniesim";
-        Process p = null;
-        try {
-            p = Runtime.getRuntime().exec("cmdkey /generic:" + ip +
-                    " /user:" + userName +
-                    " /pass:" + password);
-            p.destroy();
-            Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
-            Thread.sleep(2*60*1000); // Minutes seconds milliseconds
-            // Deleting credentials
-            Process p1 = Runtime.getRuntime().exec("cmdkey /delete:" + ip);
-            p1.destroy();
-
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-
-
+        stage = primaryStage;
     }
 
-    public void pingAll(){
-    }
 
-    public List<List<String>> readfromcsv() {
-        List<List<String>> list = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                list.add(Arrays.asList(values));
+    private void changeHeight(int rows, int colums) {
+        double newSize = scene.getHeight() / 6;
+        double posX = 0;
+        double posY = 0;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 6; ++j) {
+                computer[i][j].getImageView().setFitHeight(newSize);
+                computer[i][j].getImageView().setFitWidth(newSize);
+                computer[i][j].getImageView().setX(posX);
+                computer[i][j].getImageView().setY(posY);
+                stage.setWidth(computer[i][j].getImageView().getFitWidth() * 7);
+                posY+=newSize;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            posX+=newSize;
+            if (i == 0) {
+                rectangle1.setX(posX);
+                rectangle1.setHeight(scene.getHeight());
+                rectangle1.setWidth(newSize);
+            }else if (i==2){
+                rectangle2.setX(posX);
+                rectangle2.setHeight(scene.getHeight());
+                rectangle2.setWidth(newSize);
+            }
+            posY=0;
+            posX+=newSize;
         }
 
-        return list;
     }
 
+    private void changeWidth(int colums, int rows) {
+        double newSize = scene.getWidth() / 7;
+        double posX = 0;
+        double posY = 0;
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 6; ++j) {
+                computer[i][j].getImageView().setFitHeight(newSize);
+                computer[i][j].getImageView().setFitWidth(newSize);
+                computer[i][j].getImageView().setX(posX);
+                computer[i][j].getImageView().setY(posY);
+                stage.setHeight(computer[i][j].getImageView().getFitHeight() * 6);
+                posY+=newSize;
+            }
+            posX+=newSize;
+            if (i == 0) {
+                rectangle1.setX(posX);
+                rectangle1.setHeight(scene.getHeight());
+                rectangle1.setWidth(newSize);
+            }else if (i==2){
+                rectangle2.setX(posX);
+                rectangle2.setHeight(scene.getHeight());
+                rectangle2.setWidth(newSize);
+            }
+            posY=0;
+            posX+=newSize;
+        }
 
-
-    public void changeToRed(Computer computer) {
-        ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setContrast(0);
-        colorAdjust.setHue(0.0);
-        colorAdjust.setBrightness(0);
-        colorAdjust.setSaturation(1);
-        computer.getImageView().setEffect(colorAdjust);
     }
+        public void remoteAccess (Computer computer){
+            String ip = "192.168.43.80";
+            String userName = "Simon";
+            String password = "stniesim";
+            Process p = null;
+            try {
+                p = Runtime.getRuntime().exec("cmdkey /generic:" + ip +
+                        " /user:" + userName +
+                        " /pass:" + password);
+                p.destroy();
+                Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
+                Thread.sleep(2 * 60 * 1000); // Minutes seconds milliseconds
+                // Deleting credentials
+                Process p1 = Runtime.getRuntime().exec("cmdkey /delete:" + ip);
+                p1.destroy();
 
-    public void changeToGreen(Computer computer) {
-        ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setContrast(0);
-        colorAdjust.setHue(0.6);
-        colorAdjust.setBrightness(0);
-        colorAdjust.setSaturation(1);
-        computer.getImageView().setEffect(colorAdjust);
-    }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        public void pingAll () {
+        }
+
+        public List<List<String>> readfromcsv () {
+            List<List<String>> list = new ArrayList<>();
+            try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] values = line.split(",");
+                    list.add(Arrays.asList(values));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return list;
+        }
 
 
+        public void changeToRed (Computer computer){
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setContrast(0);
+            colorAdjust.setHue(0.0);
+            colorAdjust.setBrightness(0);
+            colorAdjust.setSaturation(1);
+            computer.getImageView().setEffect(colorAdjust);
+        }
+
+        public void changeToGreen (Computer computer){
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setContrast(0);
+            colorAdjust.setHue(0.6);
+            colorAdjust.setBrightness(0);
+            colorAdjust.setSaturation(1);
+            computer.getImageView().setEffect(colorAdjust);
+        }
 
 
+        public static void main (String[]args){
+            launch(args);
+        }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    //    private void resize(int rows, int colums) {
+        //    private void resize(int rows, int colums) {
 //        double newHeight = gridPane.getHeight() / rows;
 //        double newWidht = gridPane.getHeight() / colums;
 //        for (int i = 0; i < pcCount; ++i) {
@@ -184,21 +252,4 @@ public class Main2 extends Application {
 //    }
 
 
-    //    private void changeHeight(int rows, int colums) {
-//        double newSize = scene.getHeight() / rows;
-//        for (int i = 0; i < pcCount; ++i) {
-//            imageView[i].setFitHeight(newSize);
-//            imageView[i].setFitWidth(newSize);
-//            stage.setWidth(imageView[i].getFitWidth() * colums * 1.035);
-//        }
-//    }
-//
-//    private void changeWidth(int colums, int rows) {
-//        double newSize = scene.getWidth() / colums;
-//        for (int i = 0; i < pcCount; ++i) {
-//            imageView[i].setFitHeight(newSize);
-//            imageView[i].setFitWidth(newSize);
-//            stage.setHeight(imageView[i].getFitHeight() * rows);
-//        }
-//    }
-}
+    }
