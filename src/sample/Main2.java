@@ -31,13 +31,18 @@ public class Main2 extends Application {
     private Computer[][] computer;
     private static boolean canChange = true;
     private Rectangle rectangle1, rectangle2;
+    private int id = 1;
+
+    private double sceenwidth = 700;
+    private double sceenhight = 600;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         group = new Group();
         int xCoord = 0;
         int labelCount = 0;
         computer = new Computer[4][6];
-        scene = new Scene(group, 700, 600);
+        scene = new Scene(group, sceenwidth, sceenhight);
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png")));
@@ -70,8 +75,10 @@ public class Main2 extends Application {
 
                 group.getChildren().add(imageView);
                 List<List<String>> list = readfromcsv();
-                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView);
+                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id);
                 ++labelCount;
+
+                ++id;
             }
             xCoord += 100;
             if (i == 0) {
@@ -91,11 +98,12 @@ public class Main2 extends Application {
         }
         primaryStage.setTitle("Hello World");
         scene.setFill(Color.DARKGRAY);
-        primaryStage.setMinWidth(300);
+        primaryStage.setMinWidth(400);
         primaryStage.setMinHeight(300);
 
-        scene.widthProperty().addListener(observable -> {   //change size
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {   //change size
 //            resize(rows, finalColums);
+            echteschangewith((double)newSceneWidth);
             if (canChange) {
 //                canChange = false;
 //                System.out.println("changewith");
@@ -106,7 +114,7 @@ public class Main2 extends Application {
         scene.heightProperty().addListener(observable -> {
             if (canChange) {
                 canChange = false;
-                System.out.println("changeheight");
+                //System.out.println("changeheight");
                 changeHeight(4, 6);
                 canChange = true;
             }
@@ -147,6 +155,30 @@ public class Main2 extends Application {
         }
 
     }
+
+    //Keine ahnung wiso des net geat
+    //Hon i (Philipp) probiert, weil is ondere a bisele lost isch, und dess ah!!!!
+
+    private void echteschangewith(double newseenwidth) {
+        double multiplikator = newseenwidth / sceenwidth;
+        sceenwidth = newseenwidth;
+
+        for (int i = 0; i <= 3; ++i) {
+            for(Computer C : computer[i]) {
+                C.getImageView().setX(C.getImageView().getX() * multiplikator);
+            }
+        }
+
+        rectangle1.setWidth(computer[0][1].getImageView().getX()-100);
+
+        rectangle2.setX(computer[0][2].getImageView().getX() + 100);
+        rectangle2.setWidth(rectangle2.getWidth() * multiplikator);
+
+        //System.out.println(computer[2][0].getImageView().getX());
+        //changeToGreen(computer[2][0]);
+
+    }
+
 
     private void changeWidth(int colums, int rows) {
         double newSize = scene.getWidth() / 7;

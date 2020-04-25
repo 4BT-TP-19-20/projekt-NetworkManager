@@ -6,11 +6,13 @@ public class Computer {
         private String ip;
         private String mac;
         private ImageView imageView;
+        private int id;
 
-        public Computer(String ip, String mac, ImageView imageView) {
+        public Computer(String ip, String mac, ImageView imageView, int id) {
             this.ip = ip;
             this.mac = mac;
             this.imageView = imageView;
+            this.id = id;
         }
 
         public String getIp() {
@@ -35,6 +37,10 @@ public class Computer {
 
         public void setImageView(ImageView imageView) {
             this.imageView = imageView;
+        }
+
+        public int getId() {
+            return id;
         }
 
 }
