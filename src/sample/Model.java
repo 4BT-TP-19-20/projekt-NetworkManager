@@ -6,13 +6,23 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class Model implements Runnable {
-    private Computer computer;
+/**
+ *@author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @version 1.0
+ *
+ */
 
-    public Model(Computer computer) {
+class WakeOnLan implements Runnable{
+    Computer computer;
+
+    public WakeOnLan(Computer computer) {
         this.computer = computer;
     }
 
+    /**
+     * übergebener Computer soll über WOL aufgeweckt werden
+     * @param computer Computer der aufgeweckt werden soll
+     */
     public void wakeOnLan(Computer computer){
         int port = 9;
         String ipStr = computer.getIp();
@@ -41,6 +51,12 @@ public class Model implements Runnable {
         }
     }
 
+    /**
+     *
+     * @param macStr MAC-Adresse als String
+     * @return MAC-Adresse in Bytes
+     * @throws IllegalArgumentException
+     */
     private static byte[] getMacBytes(String macStr) throws IllegalArgumentException {
         byte[] bytes = new byte[6];
         String[] hex = macStr.split("(\\:|\\-)");
@@ -58,6 +74,20 @@ public class Model implements Runnable {
         return bytes;
     }
 
+
+    @Override
+    public void run() {
+        wakeOnLan(computer);
+    }
+}
+
+
+class PingComputer implements Runnable {
+    private Computer computer;
+    public PingComputer(Computer computer) {
+        this.computer = computer;
+    }
+
     public boolean pingComputer(Computer computer) {
         InetAddress geek = null;
         try {
@@ -66,16 +96,21 @@ public class Model implements Runnable {
             e.printStackTrace();
         }
         try {
-            if (geek.isReachable(500))
-                return true;
-            else
-                return false;
+            if (geek != null) {
+                if (geek.isReachable(500))
+                    return true;
+                else
+                    return false;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
     }
 
+    /**
+     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     */
     @Override
     public void run() {
         Main2 main = new Main2();
@@ -84,5 +119,40 @@ public class Model implements Runnable {
         } else {
             main.changeToRed(this.computer);
         }
+    }
+}
+
+class RemoteAccess implements Runnable{
+    Computer computer;
+
+    public RemoteAccess(Computer computer) {
+        this.computer = computer;
+    }
+
+    /**
+     * Verbindet sich per Remote-Desktop mit dem übergebenen Computer
+     * @param computer
+     */
+    public void remoteAccess (Computer computer){
+        String ip = computer.getIp();
+        Process p = null;
+        try {
+            p = Runtime.getRuntime().exec("cmdkey /generic:" + ip );
+            p.destroy();
+            Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
+            Thread.sleep(2 * 60 * 1000); // Minutes seconds milliseconds
+            // Deleting credentials
+            Process p1 = Runtime.getRuntime().exec("cmdkey /delete:" + ip);
+            p1.destroy();
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void run() {
+        remoteAccess(computer);
     }
 }

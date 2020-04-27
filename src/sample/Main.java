@@ -14,6 +14,12 @@ import java.io.FileInputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *@author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @version 1.0
+ *
+ */
+
 public class Main extends Application {
     private Group group;
     private ImageView[] imageView;

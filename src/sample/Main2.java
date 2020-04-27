@@ -21,8 +21,14 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @version 1.0
+ */
+
 public class Main2 extends Application {
-    //EpasCooles
+
+
     ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
     ScheduledFuture<?> scheduledFuture;
     private Stage stage;
@@ -45,49 +51,51 @@ public class Main2 extends Application {
         scene = new Scene(group, sceenwidth, sceenhight);
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
-                ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png")));
+                ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
                 imageView.setY(100 * j);
                 int finalI = i;
                 int finalJ = j;
-                imageView.setOnMouseClicked(event -> {
-                    if (event.getClickCount() == 1) {
 
-                        scheduledFuture = executor.schedule(() -> {
-                            System.out.println("single");
-                            Model m = new Model(computer[finalI][finalJ]);
+                imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
+                    if (event.getClickCount() == 1) { //bei einfachem Click
+                        scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalt von 500ms kein 2. Click erfolgt
+                            PingComputer m = new PingComputer(computer[finalI][finalJ]);
                             Thread thread = new Thread(m);
                             thread.start();
+
+                            WakeOnLan wakeOnLan = new WakeOnLan(computer[finalI][finalJ]);
+                            Thread thread2 = new Thread(m);
+                            thread2.start();
                         }, 500, TimeUnit.MILLISECONDS);
 
-                    } else {
-
+                    } else if (event.getClickCount() == 2) { //bei doppeltem Click
                         if (scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
                             scheduledFuture.cancel(false);
-                            remoteAccess(computer[finalI][finalJ]);
-                            System.out.println("double");
+                            RemoteAccess remoteAccess = new RemoteAccess(computer[finalI][finalJ]);
+                            Thread thread3 = new Thread(remoteAccess);
+                            thread3.start();
                         }
 
                     }
                 });
 
                 group.getChildren().add(imageView);
-                List<List<String>> list = readfromcsv();
+                List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
                 computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id);
                 ++labelCount;
-
                 ++id;
             }
             xCoord += 100;
-            if (i == 0) {
+            if (i == 0) { //Die Tische sollen nur zwischen Spalte 1 und 2 und zwischen Spalte 3 und 4 sein
                 rectangle1 = new Rectangle(100, 600);
                 rectangle1.setX(xCoord);
                 rectangle1.setY(0);
                 rectangle1.setFill(Color.DIMGRAY);
                 group.getChildren().add(rectangle1);
-            }else if (i==2){
+            } else if (i == 2) {
                 rectangle2 = new Rectangle(100, 600);
                 rectangle2.setX(xCoord);
                 rectangle2.setY(0);
@@ -96,14 +104,13 @@ public class Main2 extends Application {
             }
             xCoord += 100;
         }
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("SN-Projekt");
         scene.setFill(Color.DARKGRAY);
         primaryStage.setMinWidth(400);
         primaryStage.setMinHeight(300);
 
-        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {   //change size
-//            resize(rows, finalColums);
-            echteschangewith((double)newSceneWidth);
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            echteschangewith((double) newSceneWidth);
             if (canChange) {
 //                canChange = false;
 //                System.out.println("changewith");
@@ -115,10 +122,9 @@ public class Main2 extends Application {
             if (canChange) {
                 canChange = false;
                 //System.out.println("changeheight");
-                changeHeight(4, 6);
+//                changeHeight(4, 6);
                 canChange = true;
             }
-//            resize(rows, finalColums);
         });
 
         primaryStage.setScene(scene);
@@ -127,31 +133,36 @@ public class Main2 extends Application {
     }
 
 
+    /**
+     * soll die Größe anpassen, wenn die Scene verändert wird
+     * @param rows Anzahl der Reihen des Raumes
+     * @param colums Anzahl der Spalten des Raumes
+     */
     private void changeHeight(int rows, int colums) {
-        double newSize = scene.getHeight() / 6;
+        double newSize = scene.getHeight() / rows;
         double posX = 0;
         double posY = 0;
-        for (int i = 0; i < 4; ++i) {
-            for (int j = 0; j < 6; ++j) {
+        for (int i = 0; i < colums; ++i) {
+            for (int j = 0; j < rows; ++j) {
                 computer[i][j].getImageView().setFitHeight(newSize);
                 computer[i][j].getImageView().setFitWidth(newSize);
                 computer[i][j].getImageView().setX(posX);
                 computer[i][j].getImageView().setY(posY);
                 stage.setWidth(computer[i][j].getImageView().getFitWidth() * 7);
-                posY+=newSize;
+                posY += newSize;
             }
-            posX+=newSize;
+            posX += newSize;
             if (i == 0) {
                 rectangle1.setX(posX);
                 rectangle1.setHeight(scene.getHeight());
                 rectangle1.setWidth(newSize);
-            }else if (i==2){
+            } else if (i == 2) {
                 rectangle2.setX(posX);
                 rectangle2.setHeight(scene.getHeight());
                 rectangle2.setWidth(newSize);
             }
-            posY=0;
-            posX+=newSize;
+            posY = 0;
+            posX += newSize;
         }
 
     }
@@ -159,17 +170,22 @@ public class Main2 extends Application {
     //Keine ahnung wiso des net geat
     //Hon i (Philipp) probiert, weil is ondere a bisele lost isch, und dess ah!!!!
 
+
+    /**
+     * soll die Größe anpassen, wenn die Scene verändert wird
+     * @param newseenwidth neue Größe der Scene
+     */
     private void echteschangewith(double newseenwidth) {
         double multiplikator = newseenwidth / sceenwidth;
         sceenwidth = newseenwidth;
 
         for (int i = 0; i <= 3; ++i) {
-            for(Computer C : computer[i]) {
+            for (Computer C : computer[i]) {
                 C.getImageView().setX(C.getImageView().getX() * multiplikator);
             }
         }
 
-        rectangle1.setWidth(computer[0][1].getImageView().getX()-100);
+        rectangle1.setWidth(computer[0][1].getImageView().getX() - 100);
 
         rectangle2.setX(computer[0][2].getImageView().getX() + 100);
         rectangle2.setWidth(rectangle2.getWidth() * multiplikator);
@@ -179,100 +195,89 @@ public class Main2 extends Application {
 
     }
 
-
+    /**
+     * soll die Größe anpassen, wenn die Scene verändert wird
+     * @param colums
+     * @param rows
+     */
     private void changeWidth(int colums, int rows) {
         double newSize = scene.getWidth() / 7;
         double posX = 0;
         double posY = 0;
-        for (int i = 0; i < 4; ++i) {
-            for (int j = 0; j < 6; ++j) {
+        for (int i = 0; i < colums; ++i) {
+            for (int j = 0; j < rows; ++j) {
                 computer[i][j].getImageView().setFitHeight(newSize);
                 computer[i][j].getImageView().setFitWidth(newSize);
                 computer[i][j].getImageView().setX(posX);
                 computer[i][j].getImageView().setY(posY);
                 stage.setHeight(computer[i][j].getImageView().getFitHeight() * 6);
-                posY+=newSize;
+                posY += newSize;
             }
-            posX+=newSize;
+            posX += newSize;
             if (i == 0) {
                 rectangle1.setX(posX);
                 rectangle1.setHeight(scene.getHeight());
                 rectangle1.setWidth(newSize);
-            }else if (i==2){
+            } else if (i == 2) {
                 rectangle2.setX(posX);
                 rectangle2.setHeight(scene.getHeight());
                 rectangle2.setWidth(newSize);
             }
-            posY=0;
-            posX+=newSize;
+            posY = 0;
+            posX += newSize;
         }
 
     }
-        public void remoteAccess (Computer computer){
-            String ip = "192.168.43.80";
-            String userName = "Simon";
-            String password = "stniesim";
-            Process p = null;
-            try {
-                p = Runtime.getRuntime().exec("cmdkey /generic:" + ip +
-                        " /user:" + userName +
-                        " /pass:" + password);
-                p.destroy();
-                Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
-                Thread.sleep(2 * 60 * 1000); // Minutes seconds milliseconds
-                // Deleting credentials
-                Process p1 = Runtime.getRuntime().exec("cmdkey /delete:" + ip);
-                p1.destroy();
 
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
+
+    /**
+     * @return Liste mit Listen von Strings
+     */
+    public List<List<String>> readfromcsv() {
+        List<List<String>> list = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                list.add(Arrays.asList(values));
             }
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        public void pingAll () {
-        }
+        return list;
+    }
 
-        public List<List<String>> readfromcsv () {
-            List<List<String>> list = new ArrayList<>();
-            try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] values = line.split(",");
-                    list.add(Arrays.asList(values));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    /**
+     * @param computer Farbe des übergebenen Computers wird zu rot geändert
+     */
+    public void changeToRed(Computer computer) {
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setContrast(0);
+        colorAdjust.setHue(0.0);
+        colorAdjust.setBrightness(0);
+        colorAdjust.setSaturation(1);
+        computer.getImageView().setEffect(colorAdjust);
+    }
 
-            return list;
-        }
-
-
-        public void changeToRed (Computer computer){
-            ColorAdjust colorAdjust = new ColorAdjust();
-            colorAdjust.setContrast(0);
-            colorAdjust.setHue(0.0);
-            colorAdjust.setBrightness(0);
-            colorAdjust.setSaturation(1);
-            computer.getImageView().setEffect(colorAdjust);
-        }
-
-        public void changeToGreen (Computer computer){
-            ColorAdjust colorAdjust = new ColorAdjust();
-            colorAdjust.setContrast(0);
-            colorAdjust.setHue(0.6);
-            colorAdjust.setBrightness(0);
-            colorAdjust.setSaturation(1);
-            computer.getImageView().setEffect(colorAdjust);
-        }
+    /**
+     * @param computer Farbe des übergebenen Computers wird zu grün geändert
+     */
+    public void changeToGreen(Computer computer) {
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setContrast(0);
+        colorAdjust.setHue(0.6);
+        colorAdjust.setBrightness(0);
+        colorAdjust.setSaturation(1);
+        computer.getImageView().setEffect(colorAdjust);
+    }
 
 
-        public static void main (String[]args){
-            launch(args);
-        }
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-        //    private void resize(int rows, int colums) {
+    //    private void resize(int rows, int colums) {
 //        double newHeight = gridPane.getHeight() / rows;
 //        double newWidht = gridPane.getHeight() / colums;
 //        for (int i = 0; i < pcCount; ++i) {
@@ -284,4 +289,4 @@ public class Main2 extends Application {
 //    }
 
 
-    }
+}

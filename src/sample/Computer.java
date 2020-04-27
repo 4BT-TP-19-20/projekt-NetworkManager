@@ -2,6 +2,12 @@ package sample;
 
 import javafx.scene.image.ImageView;
 
+/**
+ *@author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @version 1.0
+ *
+ */
+
 public class Computer {
         private String ip;
         private String mac;
