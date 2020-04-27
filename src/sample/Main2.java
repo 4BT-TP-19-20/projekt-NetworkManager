@@ -111,7 +111,9 @@ public class Main2 extends Application {
 //                canChange = true;
             }
         });
-        scene.heightProperty().addListener(observable -> {
+        scene.heightProperty().addListener((observableValue, oldSceneHight, newSceneHight) -> {
+            echteschangehight((double)newSceneHight);
+ /*
             if (canChange) {
                 canChange = false;
                 //System.out.println("changeheight");
@@ -119,6 +121,7 @@ public class Main2 extends Application {
                 canChange = true;
             }
 //            resize(rows, finalColums);
+*/
         });
 
         primaryStage.setScene(scene);
@@ -169,13 +172,28 @@ public class Main2 extends Application {
             }
         }
 
-        rectangle1.setWidth(computer[0][1].getImageView().getX()-100);
+        rectangle1.setWidth(computer[1][0].getImageView().getX() - computer[0][0].getImageView().getFitWidth());
 
-        rectangle2.setX(computer[0][2].getImageView().getX() + 100);
-        rectangle2.setWidth(rectangle2.getWidth() * multiplikator);
+        rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
+        rectangle2.setWidth(computer[3][0].getImageView().getX() - (computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth()));
 
         //System.out.println(computer[2][0].getImageView().getX());
         //changeToGreen(computer[2][0]);
+
+    }
+
+    private void echteschangehight (double newsceenhight) {
+        double multiplikator = newsceenhight / sceenhight;
+        sceenhight = newsceenhight;
+
+        for (int i = 0; i <= 3; ++i) {
+            for(Computer C : computer[i]) {
+                C.getImageView().setY(C.getImageView().getY() * multiplikator);
+            }
+        }
+
+        rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
+        rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
 
     }
 
