@@ -106,8 +106,8 @@ public class Main2 extends Application {
         }
         primaryStage.setTitle("SN-Projekt");
         scene.setFill(Color.DARKGRAY);
-        primaryStage.setMinWidth(400);
-        primaryStage.setMinHeight(300);
+        primaryStage.setMinWidth(500);
+        primaryStage.setMinHeight(600);
 
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             echteschangewith((double) newSceneWidth);
@@ -183,13 +183,17 @@ public class Main2 extends Application {
         double multiplikator = newseenwidth / sceenwidth;
         sceenwidth = newseenwidth;
 
+        double groessespalt = 0;
+        groessespalt = sceenwidth - (computer[3][0].getImageView().getX()+computer[3][0].getImageView().getFitWidth());
+
         for (int i = 0; i <= 3; ++i) {
             for (Computer C : computer[i]) {
                 C.getImageView().setX(C.getImageView().getX() * multiplikator);
+                C.getImageView().setFitWidth(C.getImageView().getFitWidth() + groessespalt/4);
             }
         }
 
-        rectangle1.setWidth(computer[0][1].getImageView().getX() - 100);
+        rectangle1.setX(computer[0][0].getImageView().getFitWidth());
         rectangle1.setWidth(computer[1][0].getImageView().getX() - computer[0][0].getImageView().getFitWidth());
 
         rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
@@ -205,11 +209,17 @@ public class Main2 extends Application {
         double multiplikator = newsceenhight / sceenhight;
         sceenhight = newsceenhight;
 
+        double groessespalt;
+        groessespalt = sceenhight - (computer[0][5].getImageView().getY()+computer[0][5].getImageView().getFitHeight());
+
         for (int i = 0; i <= 3; ++i) {
             for(Computer C : computer[i]) {
                 C.getImageView().setY(C.getImageView().getY() * multiplikator);
+                C.getImageView().setFitHeight(C.getImageView().getFitHeight() + groessespalt/6);
             }
         }
+
+        //changeToGreen(computer[0][5]);
 
         rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
         rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
