@@ -118,13 +118,20 @@ public class Main2 extends Application {
 //                canChange = true;
             }
         });
-        scene.heightProperty().addListener(observable -> {
+        scene.heightProperty().addListener((observableValue, oldSceneHight, newSceneHight) -> {
+            echteschangehight((double)newSceneHight);
+ /*
             if (canChange) {
                 canChange = false;
                 //System.out.println("changeheight");
 //                changeHeight(4, 6);
                 canChange = true;
             }
+<<<<<<< HEAD
+=======
+//            resize(rows, finalColums);
+*/
+>>>>>>> dc5882f7abaec3dace782df865fc72888f7a066f
         });
 
         primaryStage.setScene(scene);
@@ -185,21 +192,44 @@ public class Main2 extends Application {
             }
         }
 
+<<<<<<< HEAD
         rectangle1.setWidth(computer[0][1].getImageView().getX() - 100);
+=======
+        rectangle1.setWidth(computer[1][0].getImageView().getX() - computer[0][0].getImageView().getFitWidth());
+>>>>>>> dc5882f7abaec3dace782df865fc72888f7a066f
 
-        rectangle2.setX(computer[0][2].getImageView().getX() + 100);
-        rectangle2.setWidth(rectangle2.getWidth() * multiplikator);
+        rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
+        rectangle2.setWidth(computer[3][0].getImageView().getX() - (computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth()));
 
         //System.out.println(computer[2][0].getImageView().getX());
         //changeToGreen(computer[2][0]);
 
     }
 
+<<<<<<< HEAD
     /**
      * soll die Größe anpassen, wenn die Scene verändert wird
      * @param colums
      * @param rows
      */
+=======
+    private void echteschangehight (double newsceenhight) {
+        double multiplikator = newsceenhight / sceenhight;
+        sceenhight = newsceenhight;
+
+        for (int i = 0; i <= 3; ++i) {
+            for(Computer C : computer[i]) {
+                C.getImageView().setY(C.getImageView().getY() * multiplikator);
+            }
+        }
+
+        rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
+        rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
+
+    }
+
+
+>>>>>>> dc5882f7abaec3dace782df865fc72888f7a066f
     private void changeWidth(int colums, int rows) {
         double newSize = scene.getWidth() / 7;
         double posX = 0;
