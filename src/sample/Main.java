@@ -6,175 +6,208 @@ import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
- *@author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
  * @version 1.0
- *
  */
 
 public class Main extends Application {
+
+    ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+    ScheduledFuture<?> scheduledFuture;
     private Group group;
-    private ImageView[] imageView;
-    private Image image;
-    private GridPane gridPane = new GridPane();
-    private int pcCount = 0;
     private Scene scene;
-    private Stage stage;
-    private boolean resizing=false;
+    private Computer[][] computer;
+    private Rectangle rectangle1, rectangle2;
+    private int id = 1;
+
+    private double sceneWidth = 700;
+    private double sceneHeight = 600;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        stage = primaryStage;
-        pcCount = 25;
-        imageView = new ImageView[pcCount];
-        for (int i = 0; i < pcCount; ++i) {
-            imageView[i] = new ImageView(new Image(new FileInputStream("PC_icon.png")));
-            imageView[i].setFitHeight(100);
-            imageView[i].setFitWidth(100);
-            int finalI = i;
-            imageView[i].setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2) {
-//                    remoteAccess(ip)
-                    System.out.println("doppelclick");
-                } else if (event.getClickCount() == 1) {
-                    changeToGreen(imageView[finalI]);
-                    System.out.println("einzelclick");
-                    /*
-                    pingComputer(ip);
-                    if (pingComputer) {
-                        changeToGreen(imageView[i]);
-                    } else {
-                        changeToRed(imageView[i);
+        group = new Group();
+        int xCoord = 0;
+        int labelCount = 0;
+        computer = new Computer[4][6];
+        scene = new Scene(group, sceneWidth, sceneHeight);
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 6; ++j) {
+                ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
+                imageView.setFitHeight(100);
+                imageView.setFitWidth(100);
+                imageView.setX(xCoord);
+                imageView.setY(100 * j);
+                int finalI = i;
+                int finalJ = j;
+
+                imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
+                    if (event.getClickCount() == 1) { //bei einfachem Click
+                        scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalt von 500ms kein 2. Click erfolgt
+                            PingComputer m = new PingComputer(computer[finalI][finalJ]);
+                            Thread thread = new Thread(m);
+                            thread.start();
+
+                            WakeOnLan wakeOnLan = new WakeOnLan(computer[finalI][finalJ]);
+                            Thread thread2 = new Thread(m);
+                            thread2.start();
+                        }, 500, TimeUnit.MILLISECONDS);
+
+                    } else if (event.getClickCount() == 2) { //bei doppeltem Click
+                        if (scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
+                            scheduledFuture.cancel(false);
+                            RemoteAccess remoteAccess = new RemoteAccess(computer[finalI][finalJ]);
+                            Thread thread3 = new Thread(remoteAccess);
+                            thread3.start();
+                        }
+
                     }
-                     */
-                }
-            });
-        }
-        double root = Math.sqrt(pcCount);
-        int rows, colums;
-        rows = (int) root;
-        colums = (int) root;
-        if (root > (int) root) {
-            colums += 1;
-        }
-        int counter2 = 0;
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < colums; ++j) {
-                if (counter2 < pcCount) {
-                    gridPane.add(imageView[counter2], j, i);
-//                    gridPane.setPadding(new Insets(5,5,5,5));
-                }
-                ++counter2;
+                });
+
+                group.getChildren().add(imageView);
+                List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id);
+                ++labelCount;
+                ++id;
             }
+            xCoord += 100;
+            if (i == 0) { //Die 2 "Tische" sollen nur zwischen Spalte 1 und 2 und zwischen Spalte 3 und 4 sein
+                rectangle1 = new Rectangle(100, 600);
+                rectangle1.setX(xCoord);
+                rectangle1.setY(0);
+                rectangle1.setFill(Color.DIMGRAY);
+                group.getChildren().add(rectangle1);
+            } else if (i == 2) {
+                rectangle2 = new Rectangle(100, 600);
+                rectangle2.setX(xCoord);
+                rectangle2.setY(0);
+                rectangle2.setFill(Color.DIMGRAY);
+                group.getChildren().add(rectangle2);
+            }
+            xCoord += 100;
         }
-//        gridPane.add(imageView[i], i, 0);
-//        group = new Group();
-//        group.getChildren().addAll(imageView);
-        primaryStage.setTitle("Hello World");
-        scene = new Scene(gridPane, imageView[0].getFitWidth() * colums, imageView[0].getFitHeight() * rows);
-        scene.setFill(Color.GRAY);
-        primaryStage.setMinWidth(300);
+        primaryStage.setTitle("SN-Projekt");
+        scene.setFill(Color.DARKGRAY);
+        primaryStage.setMinWidth(350);
         primaryStage.setMinHeight(300);
-        int finalColums = colums;
-        scene.widthProperty().addListener(observable -> {
-//            resize(rows, finalColums);
 
-            if (!resizing){
-                System.out.println("width");
-                resizing=true;
-//                changeWidth(finalColums, rows);
-                resizing=false;
-            }
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            echteschangewith((double) newSceneWidth);
+        });
+        scene.heightProperty().addListener((observableValue, oldSceneHight, newSceneHight) -> {
+            echteschangehight((double)newSceneHight);
         });
 
-
-        scene.heightProperty().addListener(observable -> {
-            if (!resizing){
-                System.out.println("height");
-                resizing=true;
-//                changeHeight(rows, finalColums);
-                resizing=false;
-            }
-//            resize(rows, finalColums);
-        });
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-        boolean isAlreadyOneClick;
 
-        public void doubleClick(){
-            if (isAlreadyOneClick) {
-                System.out.println("double click");
-                isAlreadyOneClick = false;
-            } else {
-                isAlreadyOneClick = true;
-                Timer t = new Timer("doubleclickTimer", false);
-                t.schedule(new TimerTask() {
+    /**
+     * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
+     * @param newSceneWidth neue Größe der Scene
+     */
+    private void echteschangewith(double newSceneWidth) {
+        double multiplikator = newSceneWidth / sceneWidth;
+        sceneWidth = newSceneWidth;
 
-                    @Override
-                    public void run() {
-                        isAlreadyOneClick = false;
-                    }
-                }, 500);
+        for (int i = 0; i <= 3; ++i) {
+            for (Computer c : computer[i]) {
+                c.getImageView().setX(c.getImageView().getX() * multiplikator);
+                c.getImageView().setFitWidth(c.getImageView().getFitWidth() * multiplikator);
             }
         }
 
-//    private void resize(int rows, int colums) {
-//        double newHeight = gridPane.getHeight() / rows;
-//        double newWidht = gridPane.getHeight() / colums;
-//        for (int i = 0; i < pcCount; ++i) {
-//            imageView[i].setFitHeight(newHeight);
-//            imageView[i].setFitWidth(newHeight);
-//        }
-//        stage.setHeight(imageView[0].getFitHeight() * rows * 1.035);
-//        stage.setWidth(imageView[0].getFitWidth() * colums * 1.035);
-//    }
+        rectangle1.setX(computer[0][0].getImageView().getFitWidth());
+        rectangle1.setWidth(computer[1][0].getImageView().getX() - computer[0][0].getImageView().getFitWidth());
 
+        rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
+        rectangle2.setWidth(computer[3][0].getImageView().getX() - (computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth()));
 
-    private void changeHeight(int rows, int colums) {
-        double newSize = scene.getHeight()/rows;
-        for (int i=0; i< pcCount;++i){
-            imageView[i].setFitHeight(newSize);
-            imageView[i].setFitWidth(newSize);
-            stage.setWidth(imageView[i].getFitWidth()*colums*1.035);
-        }
     }
 
-    private void changeWidth(int colums, int rows) {
-        double newSize = scene.getWidth()/colums;
-        for (int i=0; i< pcCount;++i){
-            imageView[i].setFitHeight(newSize);
-            imageView[i].setFitWidth(newSize);
-            stage.setHeight(imageView[i].getFitHeight()*rows);
+
+    /**
+     * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
+     * @param newSceneHeight aktuelle SceneHeight
+     */
+    private void echteschangehight (double newSceneHeight) {
+        double multiplikator = newSceneHeight / sceneHeight;
+        sceneHeight = newSceneHeight;
+
+        for (int i = 0; i <= 3; ++i) {
+            for(Computer C : computer[i]) {
+                C.getImageView().setY(C.getImageView().getY() * multiplikator);
+                C.getImageView().setFitHeight(C.getImageView().getFitHeight() * multiplikator);
+            }
         }
+        rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
+        rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
+
     }
 
-    public void changeToRed(ImageView imageView) {
+    /**
+     * liest CSV-Datei aus
+     * @return Liste mit Listen von Strings
+     */
+    public List<List<String>> readfromcsv() {
+        List<List<String>> list = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                list.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    /**
+     * ändert die Farbe des übergebenen Computers zu rot
+     * @param computer Computer, dessen Farbe geändert wird
+     */
+    public void changeToRed(Computer computer) {
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setContrast(0);
         colorAdjust.setHue(0.0);
         colorAdjust.setBrightness(0);
         colorAdjust.setSaturation(1);
-        imageView.setEffect(colorAdjust);
+        computer.getImageView().setEffect(colorAdjust);
     }
 
-    public void changeToGreen(ImageView imageView) {
+    /**
+     * ändert die Farbe des übergebenen Computers zu grün
+     * @param computer Computer, dessen Farbe geändert wird
+     */
+    public void changeToGreen(Computer computer) {
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setContrast(0);
         colorAdjust.setHue(0.6);
         colorAdjust.setBrightness(0);
         colorAdjust.setSaturation(1);
-        imageView.setEffect(colorAdjust);
+        computer.getImageView().setEffect(colorAdjust);
     }
+
 
     public static void main(String[] args) {
         launch(args);
     }
+
 }

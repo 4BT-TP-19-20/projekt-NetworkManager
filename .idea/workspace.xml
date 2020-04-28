@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/sample/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,8 +138,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sample.Main2" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="TP_Projekt" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -224,7 +229,9 @@
       <workItem from="1587985673177" duration="44000" />
       <workItem from="1587985746203" duration="615000" />
       <workItem from="1587986515603" duration="1006000" />
-      <workItem from="1587991907066" duration="3237000" />
+      <workItem from="1587991907066" duration="3545000" />
+      <workItem from="1587996924223" duration="3946000" />
+      <workItem from="1588107144435" duration="3111000" />
     </task>
     <servers />
   </component>
@@ -248,22 +255,26 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="374" y="92" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1587995046230" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1587994229257">
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1588110326771">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1587994229257" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1587994229256">
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588110326771" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1588110326771">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1587994229256" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1587994229256">
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588110326771" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1588110326771">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1587994229256" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1587994229257">
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588110326771" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1588110326771">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1587994229257" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588110326771" />
+    <state x="395" y="84" key="MultipleFileMergeDialog" timestamp="1588000287695">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="395" y="84" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1588000287695" />
     <state x="111" y="8" width="998" height="708" key="SettingsEditor" timestamp="1587992345745">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -272,14 +283,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587898367688" />
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587995137571">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588107151160">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1587995137571" />
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1588107151160" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1587994074975">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1587994074975" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1587998928342">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1587998928342" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

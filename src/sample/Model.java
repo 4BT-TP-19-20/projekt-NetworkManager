@@ -44,15 +44,15 @@ class WakeOnLan implements Runnable{
             socket.send(packet);
             socket.close();
 
-            System.out.println("Wake-on-LAN packet sent.");
+            System.out.println("Wake-on-LAN Paket gesendet.");
         }
         catch (Exception e) {
-            System.out.println("Failed to send Wake-on-LAN packet!");
+            System.out.println("Wake-on-LAN Paket nicht gesendet!");
         }
     }
 
     /**
-     *
+     * Wandelt übergebene MAC-Adresse in bytes um
      * @param macStr MAC-Adresse als String
      * @return MAC-Adresse in Bytes
      * @throws IllegalArgumentException
@@ -61,7 +61,7 @@ class WakeOnLan implements Runnable{
         byte[] bytes = new byte[6];
         String[] hex = macStr.split("(\\:|\\-)");
         if (hex.length != 6) {
-            throw new IllegalArgumentException("Invalid MAC address.");
+            throw new IllegalArgumentException("MAC-Adresse Ungültig.");
         }
         try {
             for (int i = 0; i < 6; i++) {
@@ -69,12 +69,14 @@ class WakeOnLan implements Runnable{
             }
         }
         catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Invalid hex digit in MAC address.");
+            throw new IllegalArgumentException("Ungültige Hex-Ziffer in MAC-Adresse.");
         }
         return bytes;
     }
 
-
+    /**
+     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     */
     @Override
     public void run() {
         wakeOnLan(computer);
@@ -97,7 +99,7 @@ class PingComputer implements Runnable {
         }
         try {
             if (geek != null) {
-                if (geek.isReachable(500))
+                if (geek.isReachable(2000))
                     return true;
                 else
                     return false;
@@ -113,7 +115,7 @@ class PingComputer implements Runnable {
      */
     @Override
     public void run() {
-        Main2 main = new Main2();
+        Main main = new Main();
         if (pingComputer(this.computer)) {
             main.changeToGreen(this.computer);
         } else {
@@ -151,6 +153,9 @@ class RemoteAccess implements Runnable{
 
     }
 
+    /**
+     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     */
     @Override
     public void run() {
         remoteAccess(computer);

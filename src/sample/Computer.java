@@ -25,28 +25,11 @@ public class Computer {
             return ip;
         }
 
-        public void setIp(String ip) {
-            this.ip = ip;
-        }
-
         public String getMac() {
             return mac;
-        }
-
-        public void setMac(String mac) {
-            this.mac = mac;
         }
 
         public ImageView getImageView() {
             return imageView;
         }
-
-        public void setImageView(ImageView imageView) {
-            this.imageView = imageView;
-        }
-
-        public int getId() {
-            return id;
-        }
-
 }
