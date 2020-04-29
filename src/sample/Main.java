@@ -118,10 +118,6 @@ public class Main extends Application {
             echteschangehight((double)newSceneHight);
         });
 
-        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override
@@ -131,10 +127,17 @@ public class Main extends Application {
                         Thread t = new Thread(new PingComputer(computer[i][j]));
                         t.start();
                     }
-
                 }
             }
         }, 0, 30000); //Wiederholt den Task alle 30 Sekunden
+
+        primaryStage.setOnCloseRequest(event -> {
+            t.cancel(); //sonst läuft Timer immer weiter
+        });
+        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
     }
 
 

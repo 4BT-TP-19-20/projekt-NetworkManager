@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
@@ -239,7 +240,7 @@
       <workItem from="1587996924223" duration="3946000" />
       <workItem from="1588107144435" duration="5364000" />
       <workItem from="1588116056010" duration="361000" />
-      <workItem from="1588116449972" duration="7298000" />
+      <workItem from="1588116449972" duration="8358000" />
     </task>
     <servers />
   </component>
@@ -263,22 +264,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="374" y="92" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1588121667129" />
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1588123899932">
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1588124830481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588123899932" />
-    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1588123899932">
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588124830481" />
+    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1588124830481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588123899932" />
-    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1588123899932">
+    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588124830481" />
+    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1588124830481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588123899932" />
-    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1588123899932">
+    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588124830481" />
+    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1588124830481">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588123899932" />
+    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588124830481" />
     <state x="395" y="84" key="MultipleFileMergeDialog" timestamp="1588000287695">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
