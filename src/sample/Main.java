@@ -12,13 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -63,10 +58,7 @@ public class Main extends Application {
                 int finalJ = j;
                 imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
                     if (event.getClickCount() == 1) { //bei einfachem Click
-                        scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalt von 500ms kein 2. Click erfolgt
-                            Thread thread = new Thread(new PingComputer(computer[finalI][finalJ]));
-                            thread.start();
-
+                        scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
                             Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ]));
                             thread2.start();
                         }, 500, TimeUnit.MILLISECONDS);
@@ -126,9 +118,25 @@ public class Main extends Application {
             echteschangehight((double)newSceneHight);
         });
 
+        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 4; ++i) {
+                    for (int j = 0; j < 6; ++j) {
+                        Thread t = new Thread(new PingComputer(computer[i][j]));
+                        t.start();
+                    }
+
+                }
+            }
+        }, 0, 30000); //Wiederholt den Task alle 30 Sekunden
     }
+
 
     /**
      * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
