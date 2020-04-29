@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -47,7 +49,9 @@ class WakeOnLan implements Runnable{
             System.out.println("Wake-on-LAN Paket gesendet.");
         }
         catch (Exception e) {
-            System.out.println("Wake-on-LAN Paket nicht gesendet!");
+            System.err.println("Wake-on-LAN Paket nicht gesendet!");
+            Main main = new Main();
+//            main.alert();
         }
     }
 

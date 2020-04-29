@@ -1,8 +1,10 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,9 +35,10 @@ public class Main extends Application {
     private Group group;
     private Scene scene;
     private Computer[][] computer;
+    private Label[][] labels;
     private Rectangle rectangle1, rectangle2;
     private int id = 1;
-
+    private double fontSize;
     private double sceneWidth = 700;
     private double sceneHeight = 600;
 
@@ -46,6 +49,8 @@ public class Main extends Application {
         int labelCount = 0;
         computer = new Computer[4][6];
         scene = new Scene(group, sceneWidth, sceneHeight);
+        labels = new Label[4][6];
+        List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
@@ -53,18 +58,16 @@ public class Main extends Application {
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
                 imageView.setY(100 * j);
+
                 int finalI = i;
                 int finalJ = j;
-
                 imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
                     if (event.getClickCount() == 1) { //bei einfachem Click
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalt von 500ms kein 2. Click erfolgt
-                            PingComputer m = new PingComputer(computer[finalI][finalJ]);
-                            Thread thread = new Thread(m);
+                            Thread thread = new Thread(new PingComputer(computer[finalI][finalJ]));
                             thread.start();
 
-                            WakeOnLan wakeOnLan = new WakeOnLan(computer[finalI][finalJ]);
-                            Thread thread2 = new Thread(m);
+                            Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ]));
                             thread2.start();
                         }, 500, TimeUnit.MILLISECONDS);
 
@@ -79,9 +82,19 @@ public class Main extends Application {
                     }
                 });
 
+                labels[i][j] = new Label(Integer.toString(id));
+                labels[i][j].setAlignment(Pos.CENTER);
+                labels[i][j].setPrefWidth(100);
+                labels[i][j].setMinWidth(100);
+                labels[i][j].setLayoutX(xCoord+ (labels[i][j].getWidth()/2));
+                labels[i][j].setLayoutY(100*j + 15);
+                labels[i][j].setTextFill(Color.DARKGRAY);
+                labels[i][j].setMouseTransparent(true);
+                labels[i][j].setStyle("-fx-font-size: 14");
+
                 group.getChildren().add(imageView);
-                List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
-                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id);
+                group.getChildren().add(labels[i][j]);
+                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id, labels[i][j]);
                 ++labelCount;
                 ++id;
             }
@@ -101,7 +114,7 @@ public class Main extends Application {
             }
             xCoord += 100;
         }
-        primaryStage.setTitle("SN-Projekt");
+        primaryStage.setTitle("NetworkManager");
         scene.setFill(Color.DARKGRAY);
         primaryStage.setMinWidth(350);
         primaryStage.setMinHeight(300);
@@ -129,6 +142,9 @@ public class Main extends Application {
             for (Computer c : computer[i]) {
                 c.getImageView().setX(c.getImageView().getX() * multiplikator);
                 c.getImageView().setFitWidth(c.getImageView().getFitWidth() * multiplikator);
+                c.getLabel().setLayoutX(c.getLabel().getLayoutX() * multiplikator);
+                c.getLabel().setMinWidth(c.getLabel().getMinWidth() * multiplikator);
+                c.getLabel().setPrefWidth(c.getLabel().getMinWidth());
             }
         }
 
@@ -150,9 +166,10 @@ public class Main extends Application {
         sceneHeight = newSceneHeight;
 
         for (int i = 0; i <= 3; ++i) {
-            for(Computer C : computer[i]) {
-                C.getImageView().setY(C.getImageView().getY() * multiplikator);
-                C.getImageView().setFitHeight(C.getImageView().getFitHeight() * multiplikator);
+            for(Computer c : computer[i]) {
+                c.getImageView().setY(c.getImageView().getY() * multiplikator);
+                c.getImageView().setFitHeight(c.getImageView().getFitHeight() * multiplikator);
+                c.getLabel().setLayoutY(c.getLabel().getLayoutY() * multiplikator);
             }
         }
         rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
