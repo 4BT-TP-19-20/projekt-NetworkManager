@@ -6,20 +6,18 @@ import javafx.scene.image.ImageView;
 /**
  * @author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
  * @version 1.0
+ * Diese Klasse vereint die Eigenschaften des Computers (IP, MAC-Adresse, Bild, Label mit PC-Nummer)
  */
-
 public class Computer {
     private String ip;
     private String mac;
     private ImageView imageView;
-    private int id;
     private Label label;
 
-    public Computer(String ip, String mac, ImageView imageView, int id, Label label) {
+    public Computer(String ip, String mac, ImageView imageView, Label label) {
         this.ip = ip;
         this.mac = mac;
         this.imageView = imageView;
-        this.id = id;
         this.label = label;
     }
 

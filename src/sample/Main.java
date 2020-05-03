@@ -12,7 +12,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -32,20 +35,18 @@ public class Main extends Application {
     private Computer[][] computer;
     private Label[][] labels;
     private Rectangle rectangle1, rectangle2;
-    private int id = 1;
-    private double fontSize;
     private double sceneWidth = 700;
     private double sceneHeight = 600;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         group = new Group();
-        int xCoord = 0;
-        int labelCount = 0;
         computer = new Computer[4][6];
         scene = new Scene(group, sceneWidth, sceneHeight);
         labels = new Label[4][6];
         List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+        int xCoord = 0;
+        int labelCount = 0;
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
@@ -57,13 +58,13 @@ public class Main extends Application {
                 int finalI = i;
                 int finalJ = j;
                 imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
-                    if (event.getClickCount() == 1) { //bei einfachem Click
+                    if (event.getClickCount() == 1) { //bei einfachem Click wird der Computer aufgeweckt
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
                             Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ]));
                             thread2.start();
                         }, 500, TimeUnit.MILLISECONDS);
 
-                    } else if (event.getClickCount() == 2) { //bei doppeltem Click
+                    } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
                         if (scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
                             scheduledFuture.cancel(false);
                             RemoteAccess remoteAccess = new RemoteAccess(computer[finalI][finalJ]);
@@ -74,21 +75,21 @@ public class Main extends Application {
                     }
                 });
 
-                labels[i][j] = new Label(Integer.toString(id));
+                //Eigenschaften der Labels mit der PC-Nummer werden gesetzt
+                labels[i][j] = new Label(Integer.toString(labelCount+1));
                 labels[i][j].setAlignment(Pos.CENTER);
                 labels[i][j].setPrefWidth(100);
                 labels[i][j].setMinWidth(100);
-                labels[i][j].setLayoutX(xCoord+ (labels[i][j].getWidth()/2));
-                labels[i][j].setLayoutY(100*j + 15);
+                labels[i][j].setLayoutX(xCoord + (labels[i][j].getWidth() / 2));
+                labels[i][j].setLayoutY(100 * j + 15);
                 labels[i][j].setTextFill(Color.DARKGRAY);
                 labels[i][j].setMouseTransparent(true);
                 labels[i][j].setStyle("-fx-font-size: 14");
 
                 group.getChildren().add(imageView);
                 group.getChildren().add(labels[i][j]);
-                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, id, labels[i][j]);
+                computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, labels[i][j]);
                 ++labelCount;
-                ++id;
             }
             xCoord += 100;
             if (i == 0) { //Die 2 "Tische" sollen nur zwischen Spalte 1 und 2 und zwischen Spalte 3 und 4 sein
@@ -106,16 +107,12 @@ public class Main extends Application {
             }
             xCoord += 100;
         }
-        primaryStage.setTitle("NetworkManager");
-        scene.setFill(Color.DARKGRAY);
-        primaryStage.setMinWidth(350);
-        primaryStage.setMinHeight(300);
 
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
-            echteschangewith((double) newSceneWidth);
+            updateWidth((double) newSceneWidth);
         });
         scene.heightProperty().addListener((observableValue, oldSceneHight, newSceneHight) -> {
-            echteschangehight((double)newSceneHight);
+            updateHeight((double) newSceneHight);
         });
 
         Timer t = new Timer();
@@ -129,15 +126,18 @@ public class Main extends Application {
                     }
                 }
             }
-        }, 0, 30000); //Wiederholt den Task alle 30 Sekunden
+        }, 0, 10000); //Wiederholt den Task alle 10 Sekunden
+        scene.setFill(Color.DARKGRAY);
 
         primaryStage.setOnCloseRequest(event -> {
             t.cancel(); //sonst läuft Timer immer weiter
         });
+        primaryStage.setTitle("NetworkManager");
+        primaryStage.setMinWidth(350);
+        primaryStage.setMinHeight(300);
         primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
 
@@ -145,7 +145,7 @@ public class Main extends Application {
      * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
      * @param newSceneWidth neue Größe der Scene
      */
-    private void echteschangewith(double newSceneWidth) {
+    private void updateWidth(double newSceneWidth) {
         double multiplikator = newSceneWidth / sceneWidth;
         sceneWidth = newSceneWidth;
 
@@ -172,12 +172,12 @@ public class Main extends Application {
      * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
      * @param newSceneHeight aktuelle SceneHeight
      */
-    private void echteschangehight (double newSceneHeight) {
+    private void updateHeight(double newSceneHeight) {
         double multiplikator = newSceneHeight / sceneHeight;
         sceneHeight = newSceneHeight;
 
         for (int i = 0; i <= 3; ++i) {
-            for(Computer c : computer[i]) {
+            for (Computer c : computer[i]) {
                 c.getImageView().setY(c.getImageView().getY() * multiplikator);
                 c.getImageView().setFitHeight(c.getImageView().getFitHeight() * multiplikator);
                 c.getLabel().setLayoutY(c.getLabel().getLayoutY() * multiplikator);
@@ -185,7 +185,6 @@ public class Main extends Application {
         }
         rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
         rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
-
     }
 
     /**
@@ -236,6 +235,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        System.exit(0);
     }
 
 }

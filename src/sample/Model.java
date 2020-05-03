@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.scene.control.Alert;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -9,12 +7,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- *@author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
+ * @author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
  * @version 1.0
- *
  */
 
-class WakeOnLan implements Runnable{
+class WakeOnLan implements Runnable {
     Computer computer;
 
     public WakeOnLan(Computer computer) {
@@ -22,10 +19,11 @@ class WakeOnLan implements Runnable{
     }
 
     /**
-     * übergebener Computer soll über WOL aufgeweckt werden
+     * übergebener Computer wird über WOL aufgeweckt
+     *
      * @param computer Computer der aufgeweckt werden soll
      */
-    public void wakeOnLan(Computer computer){
+    public void wakeOnLan(Computer computer) {
         int port = 9;
         String ipStr = computer.getIp();
         String macStr = computer.getMac();
@@ -41,22 +39,19 @@ class WakeOnLan implements Runnable{
             }
 
             InetAddress address = InetAddress.getByName(ipStr);
-            DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, port);
+            DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, port); //Paket wird erstellt
             DatagramSocket socket = new DatagramSocket();
-            socket.send(packet);
+            socket.send(packet); //Paket wird gesendet
             socket.close();
 
             System.out.println("Wake-on-LAN Paket gesendet.");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("Wake-on-LAN Paket nicht gesendet!");
-            Main main = new Main();
-//            main.alert();
         }
     }
 
     /**
-     * Wandelt übergebene MAC-Adresse in bytes um
+     * Wandelt übergebene MAC-Adresse von String in bytes um
      * @param macStr MAC-Adresse als String
      * @return MAC-Adresse in Bytes
      * @throws IllegalArgumentException
@@ -71,15 +66,14 @@ class WakeOnLan implements Runnable{
             for (int i = 0; i < 6; i++) {
                 bytes[i] = (byte) Integer.parseInt(hex[i], 16);
             }
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Ungültige Hex-Ziffer in MAC-Adresse.");
         }
         return bytes;
     }
 
     /**
-     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
     public void run() {
@@ -90,21 +84,22 @@ class WakeOnLan implements Runnable{
 
 class PingComputer implements Runnable {
     private Computer computer;
+
     public PingComputer(Computer computer) {
         this.computer = computer;
     }
 
     public boolean pingComputer(Computer computer) {
-        InetAddress geek = null;
+        InetAddress inetAddress = null;
         try {
-            geek = InetAddress.getByName(computer.getIp());
+            inetAddress = InetAddress.getByName(computer.getIp());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
         try {
-            if (geek != null) {
-                if (geek.isReachable(2000))
-                    return true;
+            if (inetAddress != null) {
+                if (inetAddress.isReachable(2000)) //Der Computer muss Innerhalb von 2 Sek antworten,
+                    return true;                    //sonst wird er als nichterreichbar eingestuft
                 else
                     return false;
             }
@@ -115,7 +110,7 @@ class PingComputer implements Runnable {
     }
 
     /**
-     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
     public void run() {
@@ -128,7 +123,7 @@ class PingComputer implements Runnable {
     }
 }
 
-class RemoteAccess implements Runnable{
+class RemoteAccess implements Runnable {
     Computer computer;
 
     public RemoteAccess(Computer computer) {
@@ -137,28 +132,23 @@ class RemoteAccess implements Runnable{
 
     /**
      * Verbindet sich per Remote-Desktop mit dem übergebenen Computer
-     * @param computer
+     *
+     * @param computer Computer, mit dem sich verbunden wird
      */
-    public void remoteAccess (Computer computer){
+    public void remoteAccess(Computer computer) {
         String ip = computer.getIp();
         Process p = null;
         try {
-            p = Runtime.getRuntime().exec("cmdkey /generic:" + ip );
+            p = Runtime.getRuntime().exec("cmdkey /generic:" + ip);
             p.destroy();
             Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
-            Thread.sleep(2 * 60 * 1000); // Minutes seconds milliseconds
-            // Deleting credentials
-            Process p1 = Runtime.getRuntime().exec("cmdkey /delete:" + ip);
-            p1.destroy();
-
-        } catch (IOException | InterruptedException e) {
+        } catch ( IOException e) {
             e.printStackTrace();
         }
-
     }
 
     /**
-     * Thread wird benötigt weil sonst das Programm aufgehalten wird
+     * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
     public void run() {
