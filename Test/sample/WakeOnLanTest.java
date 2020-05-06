@@ -30,6 +30,7 @@ class WakeOnLanTest {
         assertEquals("Wake-on-LAN Paket gesendet.", outContent.toString());
     }
 
+
     @Test
     void wrongPC(){
         Computer computer = new Computer("10.10.30.201","98-7B-EF-AC-8E-14");
