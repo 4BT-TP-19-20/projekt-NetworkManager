@@ -21,6 +21,11 @@ public class Computer {
         this.label = label;
     }
 
+    public Computer(String ip, String mac) {
+        this.ip = ip;
+        this.mac = mac;
+    }
+
     public String getIp() {
         return ip;
     }
