@@ -26,13 +26,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/sample/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/sample/PingComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/PingComputerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP_Projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TP_Projekt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/sample/RemoteAccessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/RemoteAccessTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/sample/WakeOnLanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/WakeOnLanTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/computer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/META-INF/TP_Projekt.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/MainTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/PingComputerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/RemoteAccessTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/WakeOnLanTest.class" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,6 +125,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -121,6 +133,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -133,20 +148,19 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="JUnit.PingComputerTest">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -158,6 +172,12 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
@@ -349,12 +369,12 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
