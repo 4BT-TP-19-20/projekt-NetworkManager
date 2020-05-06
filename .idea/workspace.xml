@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Test" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/computer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lostetextdatei.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,9 +86,6 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="JavaFxApplication" />
-  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -94,7 +103,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -112,7 +120,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -212,18 +220,6 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -255,11 +251,35 @@
       <workItem from="1588280645264" duration="39000" />
       <workItem from="1588424438948" duration="1043000" />
       <workItem from="1588532319909" duration="2978000" />
+      <workItem from="1588756963906" duration="742000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Test" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -314,10 +334,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="395" y="84" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1588000287695" />
-    <state x="111" y="8" width="998" height="708" key="SettingsEditor" timestamp="1588425218297">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="156" y="11" width="998" height="708" key="SettingsEditor" timestamp="1588758789621">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="111" y="8" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1588425218297" />
+    <state x="156" y="11" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588758789621" />
     <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1587898367688">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
