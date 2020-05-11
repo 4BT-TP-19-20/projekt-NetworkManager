@@ -56,7 +56,7 @@ class WakeOnLan implements Runnable {
      * @return MAC-Adresse in Bytes
      * @throws IllegalArgumentException
      */
-    private static byte[] getMacBytes(String macStr) throws IllegalArgumentException {
+    static byte[] getMacBytes(String macStr) throws IllegalArgumentException {
         byte[] bytes = new byte[6];
         String[] hex = macStr.split("(\\:|\\-)");
         if (hex.length != 6) {

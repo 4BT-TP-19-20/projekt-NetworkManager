@@ -26,9 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Test/sample/getMacBytesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/sample/PingComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/PingComputerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/PingComputerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/TP_Projekt/sample/PingComputerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/sample/WakeOnLanTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/sample/WakeOnLanTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/TP_Projekt/sample/WakeOnLanTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/TP_Projekt/sample/WakeOnLanTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +92,14 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -122,6 +132,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="project.structure.last.edited" value="Modules" />
@@ -130,7 +142,15 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="sample" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.WakeOnLanTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -251,6 +271,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WakeOnLanTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Projekt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample" />
+      <option name="MAIN_CLASS_NAME" value="sample.WakeOnLanTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WakeOnLanTest.wakeOnLanCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP_Projekt" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample" />
+      <option name="MAIN_CLASS_NAME" value="sample.WakeOnLanTest" />
+      <option name="METHOD_NAME" value="wakeOnLanCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -284,6 +343,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WakeOnLanTest" />
+        <item itemvalue="JUnit.WakeOnLanTest.wakeOnLanCorrect" />
         <item itemvalue="JUnit.PingComputerTest" />
         <item itemvalue="JUnit.PingComputerTest.fakeIP" />
         <item itemvalue="JUnit.PingComputerTest.pingTest" />
@@ -358,6 +419,10 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1589193462088">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589193462088" />
     <state x="686" y="110" key="#com.intellij.ide.util.MemberChooser" timestamp="1588768095153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -371,46 +436,46 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="374" y="92" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1588121667129" />
-    <state width="616" height="912" key="GridCell.Tab.0.bottom" timestamp="1588770310440">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588535586644" />
-    <state width="616" height="912" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588770310440" />
-    <state width="616" height="912" key="GridCell.Tab.0.center" timestamp="1588770310440">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588535586643" />
-    <state width="616" height="912" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588770310440" />
-    <state width="616" height="912" key="GridCell.Tab.0.left" timestamp="1588770310440">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588535586643" />
-    <state width="616" height="912" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588770310440" />
-    <state width="616" height="912" key="GridCell.Tab.0.right" timestamp="1588770310440">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588535586644" />
-    <state width="616" height="912" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588770310440" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588768474961">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1589193518147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="306" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588425494166" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588768474961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1588768474961">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518147" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="306" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1588425494166" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588768474961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1588768474961">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1589193518146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="306" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1588425494166" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588768474961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1588768474961">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518146" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1589193518147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="306" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1588425494166" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588768474961" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589193518147" />
     <state x="395" y="84" key="MultipleFileMergeDialog" timestamp="1588000287695">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -428,6 +493,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1588107151160" />
+    <state x="731" y="329" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589192826184">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="329" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589192826184" />
     <state x="65" y="70" key="new project wizard" timestamp="1588425453684">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
