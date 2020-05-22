@@ -87,7 +87,7 @@ public class Main extends Application {
                         c.getLabel().setPrefWidth(80);
                         c.getLabel().setMinWidth(80);
                         c.getLabel().setLayoutX(c.getStdlabelx());
-                        c.getLabel().setLayoutX(c.getStdlabely());
+                        c.getLabel().setLayoutY(c.getStdlabely());
                         c.getImageView().setFitWidth(80);
                         c.getImageView().setFitHeight(100);
                         c.getImageView().setX(c.getStdx());
@@ -112,7 +112,7 @@ public class Main extends Application {
                         c.getLabel().setMinWidth(100);
                         c.getLabel().setPrefWidth(100);
                         c.getLabel().setLayoutX(c.getStdlabelx());
-                        c.getLabel().setLayoutX(c.getStdlabely());
+                        c.getLabel().setLayoutY(c.getStdlabely());
                         c.getImageView().setFitWidth(100);
                         c.getImageView().setFitHeight(100);
                         c.getImageView().setX(c.getStdx());
