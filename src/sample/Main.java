@@ -69,7 +69,12 @@ public class Main extends Application {
 
         menuItems[1] = new MenuItem("change PC-Info");
         menuItems[1].setOnAction(event -> {
-            openCSVFile(new File("computer.csv"));
+            if (onSNLab) {
+                openCSVFile(new File("computer.csv"));
+            } else {
+                openCSVFile(new File("computer2.csv"));
+            }
+
         });
 
         menuItems[2] = new MenuItem("change Room");
@@ -137,7 +142,7 @@ public class Main extends Application {
         menubar.getMenus().add(menu);
         menubar.setPrefHeight(25);
         menubar.setMinHeight(25);
-        System.out.println(menubar.getHeight());
+        //System.out.println(menubar.getHeight());
 
         group.getChildren().add(menubar);
 
@@ -261,19 +266,19 @@ public class Main extends Application {
         sceneHeight = 600;
         scene2 = new Scene(group2, sceneWidth, sceneHeight);
 
-        computer2 = new Computer[6][4];
-        labels2 = new Label[6][4];
+        computer2 = new Computer[6][2];
+        labels2 = new Label[6][2];
         int xCoord = 0;
         int labelCount = 0;
         List<List<String>> list = readfromcsv2(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
 
         for (int i = 0; i < 6; ++i) {
-            for (int j = 0; j < 4; ++j) {
+            for (int j = 0; j < 2; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(80);
                 imageView.setX(xCoord);
-                imageView.setY((150 * j)+20);
+                imageView.setY((300 * j)+100);
 
                 int finalI = i;
                 int finalJ = j;
@@ -301,7 +306,7 @@ public class Main extends Application {
                 labels2[i][j].setPrefWidth(80);
                 labels2[i][j].setMinWidth(80);
                 labels2[i][j].setLayoutX(xCoord + (labels2[i][j].getWidth() / 2));
-                labels2[i][j].setLayoutY(150 * j + 35);
+                labels2[i][j].setLayoutY(300 * j + 115);
                 labels2[i][j].setTextFill(Color.DARKGRAY);
                 labels2[i][j].setMouseTransparent(true);
                 labels2[i][j].setStyle("-fx-font-size: 14");
@@ -352,7 +357,7 @@ public class Main extends Application {
             @Override
             public void run() {
                 for (int i = 0; i < 6; ++i) {
-                    for (int j = 0; j < 4; ++j) {
+                    for (int j = 0; j < 2; ++j) {
                         Thread t = new Thread(new PingComputer(computer2[i][j]));
                         t.start();
                     }
