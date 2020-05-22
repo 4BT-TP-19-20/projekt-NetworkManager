@@ -75,21 +75,61 @@ public class Main extends Application {
         menuItems[2] = new MenuItem("change Room");
         menuItems[2].setOnAction(event -> {
             if (onSNLab) {
-                group2.getChildren().add(menubar);
-                menubar.setPrefWidth(880);
                 onSNLab = false;
+                sceneHeight = 600;
+                sceneWidth = 880;
+
+                for (int i = 0; i < 6; ++i) {
+                    for (Computer c : computer2[i]) {
+                        rectangle21.setHeight(620);
+                        rectangle22.setHeight(620);
+                        rectangle23.setHeight(620);
+                        c.getLabel().setPrefWidth(80);
+                        c.getLabel().setMinWidth(80);
+                        c.getLabel().setLayoutX(c.getStdlabelx());
+                        c.getLabel().setLayoutX(c.getStdlabely());
+                        c.getImageView().setFitWidth(80);
+                        c.getImageView().setFitHeight(100);
+                        c.getImageView().setX(c.getStdx());
+                        c.getImageView().setY(c.getStdy());
+                    }
+                }
+
                 primaryStage.setScene(scene2);
+
+                menubar.setPrefWidth(sceneWidth);
+                group2.getChildren().add(menubar);
+
             } else {
-                group.getChildren().add(menubar);
-                menubar.setPrefWidth(700);
                 onSNLab = true;
+                sceneHeight = 620;
+                sceneWidth = 700;
+
+                for (int i = 0; i < 4; ++i) {
+                    for (Computer c : computer[i]) {
+                        rectangle1.setHeight(620);
+                        rectangle2.setHeight(620);
+                        c.getLabel().setMinWidth(100);
+                        c.getLabel().setPrefWidth(100);
+                        c.getLabel().setLayoutX(c.getStdlabelx());
+                        c.getLabel().setLayoutX(c.getStdlabely());
+                        c.getImageView().setFitWidth(100);
+                        c.getImageView().setFitHeight(100);
+                        c.getImageView().setX(c.getStdx());
+                        c.getImageView().setY(c.getStdy());
+                    }
+                }
+
                 primaryStage.setScene(scene);
+
+                menubar.setPrefWidth(sceneWidth);
+                group.getChildren().add(menubar);
             }
 
         });
 
-        drawSNLab(primaryStage);
         drawElectronicLab(primaryStage);
+        drawSNLab(primaryStage);
 
         Menu menu = new Menu("Options");
         menu.getItems().addAll(menuItems);
@@ -113,6 +153,7 @@ public class Main extends Application {
 
         group = new Group();
         sceneWidth = 700;
+        sceneHeight = 620;
         scene = new Scene(group, sceneWidth, sceneHeight);
 
         computer = new Computer[4][6];
@@ -163,6 +204,10 @@ public class Main extends Application {
                 group.getChildren().add(imageView);
                 group.getChildren().add(labels[i][j]);
                 computer[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, labels[i][j]);
+                computer[i][j].setStdx(computer[i][j].getImageView().getX());
+                computer[i][j].setStdy(computer[i][j].getImageView().getY());
+                computer[i][j].setStdlabelx(computer[i][j].getLabel().getLayoutX());
+                computer[i][j].setStdlabely(computer[i][j].getLabel().getLayoutY());
                 ++labelCount;
             }
             xCoord += 100;
@@ -213,6 +258,7 @@ public class Main extends Application {
 
         group2 = new Group();
         sceneWidth = 880;
+        sceneHeight = 600;
         scene2 = new Scene(group2, sceneWidth, sceneHeight);
 
         computer2 = new Computer[6][4];
@@ -263,6 +309,10 @@ public class Main extends Application {
                 group2.getChildren().add(imageView);
                 group2.getChildren().add(labels2[i][j]);
                 computer2[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, labels2[i][j]);
+                computer2[i][j].setStdx(computer2[i][j].getImageView().getX());
+                computer2[i][j].setStdy(computer2[i][j].getImageView().getY());
+                computer2[i][j].setStdlabelx(computer2[i][j].getLabel().getLayoutX());
+                computer2[i][j].setStdlabely(computer2[i][j].getLabel().getLayoutY());
                 ++labelCount;
             }
             xCoord += 80;
@@ -288,7 +338,12 @@ public class Main extends Application {
             xCoord += 80;
         }
 
-        //resize
+        scene2.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            updateWidth2((double) newSceneWidth);
+        });
+        scene2.heightProperty().addListener((observableValue, oldSceneHight, newSceneHight) -> {
+            updateHeight2((double) newSceneHight);
+        });
 
         scene2.setFill(Color.DARKGRAY);
 
@@ -339,6 +394,32 @@ public class Main extends Application {
     }
 
 
+    private void updateWidth2(double newSceneWidth) {
+        double multiplikator = newSceneWidth / sceneWidth;
+        sceneWidth = newSceneWidth;
+
+        for (int i = 0; i < 6; ++i) {
+            for (Computer c : computer2[i]) {
+                c.getImageView().setX(c.getImageView().getX() * multiplikator);
+                c.getImageView().setFitWidth(c.getImageView().getFitWidth() * multiplikator);
+                c.getLabel().setLayoutX(c.getLabel().getLayoutX() * multiplikator);
+                c.getLabel().setMinWidth(c.getLabel().getMinWidth() * multiplikator);
+                c.getLabel().setPrefWidth(c.getLabel().getMinWidth());
+            }
+        }
+
+        rectangle21.setX(computer2[0][0].getImageView().getFitWidth());
+        rectangle21.setWidth(computer2[1][0].getImageView().getX() - computer2[0][0].getImageView().getFitWidth());
+
+        rectangle22.setX(computer2[2][0].getImageView().getX() + computer2[2][0].getImageView().getFitWidth());
+        rectangle22.setWidth(computer2[3][0].getImageView().getX() - (computer2[2][0].getImageView().getX() + computer2[2][0].getImageView().getFitWidth()));
+
+        rectangle23.setX(computer2[4][0].getImageView().getX() + computer2[4][0].getImageView().getFitWidth());
+        rectangle23.setWidth(computer2[5][0].getImageView().getX() - (computer2[4][0].getImageView().getX() + computer2[4][0].getImageView().getFitWidth()));
+
+        menubar.setPrefWidth(menubar.getWidth() * multiplikator);
+    }
+
     /**
      * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
      *
@@ -350,13 +431,30 @@ public class Main extends Application {
 
         for (int i = 0; i <= 3; ++i) {
             for (Computer c : computer[i]) {
-                c.getImageView().setY(c.getImageView().getY() * multiplikator);
+                c.getImageView().setY((c.getImageView().getY() - 20) * multiplikator + 20);
                 c.getImageView().setFitHeight(c.getImageView().getFitHeight() * multiplikator);
-                c.getLabel().setLayoutY(c.getLabel().getLayoutY() * multiplikator);
+                c.getLabel().setLayoutY((c.getLabel().getLayoutY() - 20) * multiplikator + 20);
             }
         }
         rectangle1.setHeight(rectangle1.getHeight() * multiplikator);
         rectangle2.setHeight(rectangle2.getHeight() * multiplikator);
+    }
+
+
+    private void updateHeight2(double newSceneHeight) {
+        double multiplikator = newSceneHeight / sceneHeight;
+        sceneHeight = newSceneHeight;
+
+        for (int i = 0; i < 6; ++i) {
+            for (Computer c : computer2[i]) {
+                c.getImageView().setY((c.getImageView().getY() - 20) * multiplikator + 20);
+                c.getImageView().setFitHeight(c.getImageView().getFitHeight() * multiplikator);
+                c.getLabel().setLayoutY((c.getLabel().getLayoutY() - 20) * multiplikator + 20);
+            }
+        }
+        rectangle21.setHeight(rectangle21.getHeight() * multiplikator);
+        rectangle22.setHeight(rectangle22.getHeight() * multiplikator);
+        rectangle23.setHeight(rectangle23.getHeight() * multiplikator);
     }
 
     /**
@@ -381,7 +479,7 @@ public class Main extends Application {
 
     public List<List<String>> readfromcsv2() {
         List<List<String>> list = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {              //ondere CSV Datei!!
+        try (BufferedReader br = new BufferedReader(new FileReader("computer2.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");

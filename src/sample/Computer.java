@@ -13,6 +13,10 @@ public class Computer {
     private String mac;
     private ImageView imageView;
     private Label label;
+    private double stdx;
+    private double stdy;
+    private double stdlabelx;
+    private double stdlabely;
 
     public Computer(String ip, String mac, ImageView imageView, Label label) {
         this.ip = ip;
@@ -35,5 +39,37 @@ public class Computer {
 
     public Label getLabel() {
         return label;
+    }
+
+    public double getStdx() {
+        return stdx;
+    }
+
+    public void setStdx(double stdx) {
+        this.stdx = stdx;
+    }
+
+    public double getStdy() {
+        return stdy;
+    }
+
+    public void setStdy(double stdy) {
+        this.stdy = stdy;
+    }
+
+    public double getStdlabelx() {
+        return stdlabelx;
+    }
+
+    public void setStdlabelx(double stdlabelx) {
+        this.stdlabelx = stdlabelx;
+    }
+
+    public double getStdlabely() {
+        return stdlabely;
+    }
+
+    public void setStdlabely(double stdlabely) {
+        this.stdlabely = stdlabely;
     }
 }
