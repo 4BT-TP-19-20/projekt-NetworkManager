@@ -34,24 +34,25 @@ public class Main extends Application {
     ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
     ScheduledFuture<?> scheduledFuture;
     private Group group;
+    private Group group2;
     private Scene scene;
+    private Scene scene2;
     private Computer[][] computer;
+    private Computer[][] computer2;
     private Label[][] labels;
+    private Label[][] labels2;
     private Rectangle rectangle1, rectangle2;
+    private Rectangle rectangle21, rectangle22, rectangle23;
     private double sceneWidth = 700;
     private double sceneHeight = 600 + 20;
     private MenuBar menubar = new MenuBar();
+    private boolean onSNLab;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        group = new Group();
-        computer = new Computer[4][6];
-        scene = new Scene(group, sceneWidth, sceneHeight);
-        labels = new Label[4][6];
-        List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
-        int xCoord = 0;
-        int labelCount = 0;
 
-        MenuItem[] menuItems = new MenuItem[2];
+        onSNLab = true;
+        MenuItem[] menuItems = new MenuItem[3];
         menuItems[0] = new MenuItem("How to use");
         menuItems[0].setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -69,8 +70,26 @@ public class Main extends Application {
         menuItems[1] = new MenuItem("change PC-Info");
         menuItems[1].setOnAction(event -> {
             openCSVFile(new File("computer.csv"));
+        });
+
+        menuItems[2] = new MenuItem("change Room");
+        menuItems[2].setOnAction(event -> {
+            if (onSNLab) {
+                group2.getChildren().add(menubar);
+                menubar.setPrefWidth(880);
+                onSNLab = false;
+                primaryStage.setScene(scene2);
+            } else {
+                group.getChildren().add(menubar);
+                menubar.setPrefWidth(700);
+                onSNLab = true;
+                primaryStage.setScene(scene);
+            }
 
         });
+
+        drawSNLab(primaryStage);
+        drawElectronicLab(primaryStage);
 
         Menu menu = new Menu("Options");
         menu.getItems().addAll(menuItems);
@@ -79,13 +98,36 @@ public class Main extends Application {
         menubar.setPrefHeight(25);
         menubar.setMinHeight(25);
         System.out.println(menubar.getHeight());
+
+        group.getChildren().add(menubar);
+
+        primaryStage.setTitle("NetworkManager");
+        primaryStage.setMinWidth(350);
+        primaryStage.setMinHeight(300);
+        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void drawSNLab(Stage primaryStage) throws FileNotFoundException {
+
+        group = new Group();
+        sceneWidth = 700;
+        scene = new Scene(group, sceneWidth, sceneHeight);
+
+        computer = new Computer[4][6];
+        labels = new Label[4][6];
+        int xCoord = 0;
+        int labelCount = 0;
+        List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
-                imageView.setY(100 * j);
+                imageView.setY((100 * j)+20);
 
                 int finalI = i;
                 int finalJ = j;
@@ -113,7 +155,7 @@ public class Main extends Application {
                 labels[i][j].setPrefWidth(100);
                 labels[i][j].setMinWidth(100);
                 labels[i][j].setLayoutX(xCoord + (labels[i][j].getWidth() / 2));
-                labels[i][j].setLayoutY(100 * j + 15);
+                labels[i][j].setLayoutY(100 * j + 35);
                 labels[i][j].setTextFill(Color.DARKGRAY);
                 labels[i][j].setMouseTransparent(true);
                 labels[i][j].setStyle("-fx-font-size: 14");
@@ -125,13 +167,13 @@ public class Main extends Application {
             }
             xCoord += 100;
             if (i == 0) { //Die 2 "Tische" sollen nur zwischen Spalte 1 und 2 und zwischen Spalte 3 und 4 sein
-                rectangle1 = new Rectangle(100, 600);
+                rectangle1 = new Rectangle(100, 600 + 20);
                 rectangle1.setX(xCoord);
                 rectangle1.setY(0);
                 rectangle1.setFill(Color.DIMGRAY);
                 group.getChildren().add(rectangle1);
             } else if (i == 2) {
-                rectangle2 = new Rectangle(100, 600);
+                rectangle2 = new Rectangle(100, 600 + 20);
                 rectangle2.setX(xCoord);
                 rectangle2.setY(0);
                 rectangle2.setFill(Color.DIMGRAY);
@@ -162,18 +204,111 @@ public class Main extends Application {
         scene.setFill(Color.DARKGRAY);
 
         primaryStage.setOnCloseRequest(event -> {
-            t.cancel(); //sonst läuft Timer immer weiter
+            t.cancel(); //sonst läuft Timer immer weiter, auch wenn main thread beendet wird
         });
 
-        group.getChildren().add(menubar);
-        primaryStage.setTitle("NetworkManager");
-        primaryStage.setMinWidth(350);
-        primaryStage.setMinHeight(300);
-        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
+    private void drawElectronicLab (Stage primaryStage) throws FileNotFoundException {
+
+        group2 = new Group();
+        sceneWidth = 880;
+        scene2 = new Scene(group2, sceneWidth, sceneHeight);
+
+        computer2 = new Computer[6][4];
+        labels2 = new Label[6][4];
+        int xCoord = 0;
+        int labelCount = 0;
+        List<List<String>> list = readfromcsv2(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+
+        for (int i = 0; i < 6; ++i) {
+            for (int j = 0; j < 4; ++j) {
+                ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
+                imageView.setFitHeight(100);
+                imageView.setFitWidth(80);
+                imageView.setX(xCoord);
+                imageView.setY((150 * j)+20);
+
+                int finalI = i;
+                int finalJ = j;
+                imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
+                    if (event.getClickCount() == 1) { //bei einfachem Click wird der Computer aufgeweckt
+                        scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
+                            Thread thread2 = new Thread(new WakeOnLan(computer2[finalI][finalJ]));
+                            thread2.start();
+                        }, 500, TimeUnit.MILLISECONDS);
+
+                    } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
+                        if (scheduledFuture != null && !scheduledFuture.isCancelled() && !scheduledFuture.isDone()) {
+                            scheduledFuture.cancel(false);
+                            RemoteAccess remoteAccess = new RemoteAccess(computer2[finalI][finalJ]);
+                            Thread thread3 = new Thread(remoteAccess);
+                            thread3.start();
+                        }
+
+                    }
+                });
+
+                //Eigenschaften der Labels mit der PC-Nummer werden gesetzt
+                labels2[i][j] = new Label(Integer.toString(labelCount + 1));
+                labels2[i][j].setAlignment(Pos.CENTER);
+                labels2[i][j].setPrefWidth(80);
+                labels2[i][j].setMinWidth(80);
+                labels2[i][j].setLayoutX(xCoord + (labels2[i][j].getWidth() / 2));
+                labels2[i][j].setLayoutY(150 * j + 35);
+                labels2[i][j].setTextFill(Color.DARKGRAY);
+                labels2[i][j].setMouseTransparent(true);
+                labels2[i][j].setStyle("-fx-font-size: 14");
+
+                group2.getChildren().add(imageView);
+                group2.getChildren().add(labels2[i][j]);
+                computer2[i][j] = new Computer(list.get(labelCount).get(0), list.get(labelCount).get(1), imageView, labels2[i][j]);
+                ++labelCount;
+            }
+            xCoord += 80;
+            if (i == 0) { //Die 2 "Tische" sollen nur zwischen Spalte 1 und 2 und zwischen Spalte 3 und 4 sein
+                rectangle21 = new Rectangle(80, 600 + 20);
+                rectangle21.setX(xCoord);
+                rectangle21.setY(0);
+                rectangle21.setFill(Color.DIMGRAY);
+                group2.getChildren().add(rectangle21);
+            } else if (i == 2) {
+                rectangle22 = new Rectangle(80, 600 + 20);
+                rectangle22.setX(xCoord);
+                rectangle22.setY(0);
+                rectangle22.setFill(Color.DIMGRAY);
+                group2.getChildren().add(rectangle22);
+            } else if (i == 4) {
+                rectangle23 = new Rectangle(80, 600 + 20);
+                rectangle23.setX(xCoord);
+                rectangle23.setY(0);
+                rectangle23.setFill(Color.DIMGRAY);
+                group2.getChildren().add(rectangle23);
+            }
+            xCoord += 80;
+        }
+
+        //resize
+
+        scene2.setFill(Color.DARKGRAY);
+
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 6; ++i) {
+                    for (int j = 0; j < 4; ++j) {
+                        Thread t = new Thread(new PingComputer(computer2[i][j]));
+                        t.start();
+                    }
+                }
+            }
+        }, 0, 10000); //Wiederholt den Task alle 10 Sekunden
+
+        primaryStage.setOnCloseRequest(event -> {
+            t.cancel(); //sonst läuft Timer immer weiter, auch wenn main thread beendet wird
+        });
+    }
 
     /**
      * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
@@ -200,6 +335,7 @@ public class Main extends Application {
         rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
         rectangle2.setWidth(computer[3][0].getImageView().getX() - (computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth()));
 
+        menubar.setPrefWidth(menubar.getWidth()*multiplikator);
     }
 
 
@@ -231,6 +367,21 @@ public class Main extends Application {
     public List<List<String>> readfromcsv() {
         List<List<String>> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                list.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    public List<List<String>> readfromcsv2() {
+        List<List<String>> list = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {              //ondere CSV Datei!!
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
