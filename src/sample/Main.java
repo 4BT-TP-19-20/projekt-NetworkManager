@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,11 +16,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.*;
+import java.io.*;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -36,8 +39,8 @@ public class Main extends Application {
     private Label[][] labels;
     private Rectangle rectangle1, rectangle2;
     private double sceneWidth = 700;
-    private double sceneHeight = 600;
-
+    private double sceneHeight = 600 + 20;
+    private MenuBar menubar = new MenuBar();
     @Override
     public void start(Stage primaryStage) throws Exception {
         group = new Group();
@@ -47,6 +50,35 @@ public class Main extends Application {
         List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
         int xCoord = 0;
         int labelCount = 0;
+
+        MenuItem[] menuItems = new MenuItem[2];
+        menuItems[0] = new MenuItem("How to use");
+        menuItems[0].setOnAction(event -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(null);
+            alert.setContentText("Ist der PC rot ist er ausgeschaltet oder nicht erreichbar.\n" +
+                    "Ist der PC grün ist er eingeschaltet.\n" +
+                    "Bei einem eifachen Click auf einen Computer wird der Computer mit WOL aufgeweckt.\n" +
+                    "Bei einem doppelten Click auf einen Computer wird sich über RDP mit dem Computer verbunden.\n"+
+                    "Mit change PC-Info kann man die MAC und IP Adressen der PCs ändern.\n"+
+                    "Manchmal werden einige PCs nicht richtig verschoben.");
+            alert.showAndWait();
+        });
+
+        menuItems[1] = new MenuItem("change PC-Info");
+        menuItems[1].setOnAction(event -> {
+            openCSVFile(new File("computer.csv"));
+
+        });
+
+        Menu menu = new Menu("Options");
+        menu.getItems().addAll(menuItems);
+        menubar.setPrefWidth(scene.getWidth());
+        menubar.getMenus().add(menu);
+        menubar.setPrefHeight(25);
+        menubar.setMinHeight(25);
+        System.out.println(menubar.getHeight());
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
                 ImageView imageView = new ImageView(new Image(new FileInputStream("PC_icon.png"))); //Neues Imageview wird aus dem Bild "PC_icon.png" erstellt
@@ -76,7 +108,7 @@ public class Main extends Application {
                 });
 
                 //Eigenschaften der Labels mit der PC-Nummer werden gesetzt
-                labels[i][j] = new Label(Integer.toString(labelCount+1));
+                labels[i][j] = new Label(Integer.toString(labelCount + 1));
                 labels[i][j].setAlignment(Pos.CENTER);
                 labels[i][j].setPrefWidth(100);
                 labels[i][j].setMinWidth(100);
@@ -132,6 +164,8 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(event -> {
             t.cancel(); //sonst läuft Timer immer weiter
         });
+
+        group.getChildren().add(menubar);
         primaryStage.setTitle("NetworkManager");
         primaryStage.setMinWidth(350);
         primaryStage.setMinHeight(300);
@@ -143,6 +177,7 @@ public class Main extends Application {
 
     /**
      * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
+     *
      * @param newSceneWidth neue Größe der Scene
      */
     private void updateWidth(double newSceneWidth) {
@@ -170,6 +205,7 @@ public class Main extends Application {
 
     /**
      * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
+     *
      * @param newSceneHeight aktuelle SceneHeight
      */
     private void updateHeight(double newSceneHeight) {
@@ -189,6 +225,7 @@ public class Main extends Application {
 
     /**
      * liest CSV-Datei aus
+     *
      * @return Liste mit Listen von Strings
      */
     public List<List<String>> readfromcsv() {
@@ -206,8 +243,30 @@ public class Main extends Application {
         return list;
     }
 
+
+    /**
+     * öffnet übergebene Dateien
+     */
+    public void openCSVFile(File file){
+        //überprüft, ob Desktop unterstützt wird
+        if(!Desktop.isDesktopSupported()){
+            System.out.println("Desktop wird nicht unterstützt!");
+            return;
+        }
+
+        Desktop desktop = Desktop.getDesktop();
+        if(file.exists()) {
+            try {
+                desktop.open(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     /**
      * ändert die Farbe des übergebenen Computers zu rot
+     *
      * @param computer Computer, dessen Farbe geändert wird
      */
     public void changeToRed(Computer computer) {
@@ -221,6 +280,7 @@ public class Main extends Application {
 
     /**
      * ändert die Farbe des übergebenen Computers zu grün
+     *
      * @param computer Computer, dessen Farbe geändert wird
      */
     public void changeToGreen(Computer computer) {

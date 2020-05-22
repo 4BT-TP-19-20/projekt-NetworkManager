@@ -52,6 +52,7 @@ class WakeOnLan implements Runnable {
 
     /**
      * Wandelt übergebene MAC-Adresse von String in bytes um
+     *
      * @param macStr MAC-Adresse als String
      * @return MAC-Adresse in Bytes
      * @throws IllegalArgumentException
@@ -99,13 +100,14 @@ class PingComputer implements Runnable {
         try {
             if (inetAddress != null) {
                 if (inetAddress.isReachable(2000)) //Der Computer muss Innerhalb von 2 Sek antworten,
-                    return true;                    //sonst wird er als nichterreichbar eingestuft
+                    return true;                           //sonst wird er als nichterreichbar eingestuft
                 else
                     return false;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return false;
     }
 
@@ -142,7 +144,7 @@ class RemoteAccess implements Runnable {
             p = Runtime.getRuntime().exec("cmdkey /generic:" + ip);
             p.destroy();
             Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
-        } catch ( IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="TP_Projekt" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/computer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lostetextdatei.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
@@ -77,6 +79,13 @@
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -111,7 +120,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -254,12 +263,25 @@
       <workItem from="1588153753459" duration="2805000" />
       <workItem from="1588280645264" duration="39000" />
       <workItem from="1588424438948" duration="1043000" />
-      <workItem from="1588532319909" duration="2978000" />
+      <workItem from="1588532319909" duration="3504000" />
+      <workItem from="1588576269511" duration="9009000" />
+      <workItem from="1588774021228" duration="3683000" />
+      <workItem from="1588794861819" duration="597000" />
+      <workItem from="1588867576900" duration="163000" />
+      <workItem from="1589217531236" duration="926000" />
+      <workItem from="1589219911719" duration="32000" />
+      <workItem from="1589359138908" duration="2666000" />
+      <workItem from="1589486581700" duration="11000" />
+      <workItem from="1589488876416" duration="32000" />
+      <workItem from="1590146685746" duration="3277000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -278,22 +300,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="374" y="92" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1588121667129" />
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1588535586644">
+    <state width="1323" height="213" key="GridCell.Tab.0.bottom" timestamp="1590150724524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588535586644" />
-    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1588535586643">
+    <state width="1323" height="213" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1590150724524" />
+    <state width="1323" height="213" key="GridCell.Tab.0.center" timestamp="1590150724523">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588535586643" />
-    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1588535586643">
+    <state width="1323" height="213" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1590150724523" />
+    <state width="1323" height="213" key="GridCell.Tab.0.left" timestamp="1590150724523">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588535586643" />
-    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1588535586644">
+    <state width="1323" height="213" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1590150724523" />
+    <state width="1323" height="213" key="GridCell.Tab.0.right" timestamp="1590150724523">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588535586644" />
+    <state width="1323" height="213" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1590150724523" />
     <state width="1323" height="306" key="GridCell.Tab.1.bottom" timestamp="1588425494166">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -314,22 +336,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="395" y="84" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1588000287695" />
-    <state x="111" y="8" width="998" height="708" key="SettingsEditor" timestamp="1588425218297">
+    <state x="322" y="25" width="998" height="708" key="SettingsEditor" timestamp="1589360990352">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="111" y="8" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1588425218297" />
+    <state x="322" y="25" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1589360990352" />
     <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1587898367688">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587898367688" />
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588107151160">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590146775407">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1588107151160" />
-    <state x="65" y="70" key="new project wizard" timestamp="1588425453684">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1590146775407" />
+    <state x="131" y="43" key="new project wizard" timestamp="1589488908295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="65" y="70" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1588425453684" />
+    <state x="131" y="43" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1589488908295" />
     <state x="339" y="165" key="run.anything.popup" timestamp="1588117119905">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
