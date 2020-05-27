@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -32,7 +34,7 @@ class WakeOnLan implements Runnable {
             byte[] macBytes = getMacBytes(macStr);
             byte[] bytes = new byte[6 + 16 * macBytes.length];
             for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte) 0xff;
+                bytes[i] = (byte) 0xFF;
             }
             for (int i = 6; i < bytes.length; i += macBytes.length) {
                 System.arraycopy(macBytes, 0, bytes, i, macBytes.length);
@@ -43,8 +45,15 @@ class WakeOnLan implements Runnable {
             DatagramSocket socket = new DatagramSocket();
             socket.send(packet); //Paket wird gesendet
             socket.close();
-
+            /*
+            Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
+            newAlert.setTitle("WOL");
+            newAlert.setHeaderText(null);
+            newAlert.setContentText("WOL-Paket wurde versendet!");
+            newAlert.showAndWait();
+             */
             System.out.println("Wake-on-LAN Paket gesendet.");
+
         } catch (Exception e) {
             System.err.println("Wake-on-LAN Paket nicht gesendet!");
         }

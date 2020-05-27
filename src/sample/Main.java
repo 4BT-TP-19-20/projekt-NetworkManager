@@ -53,21 +53,21 @@ public class Main extends Application {
 
         onSNLab = true;
         MenuItem[] menuItems = new MenuItem[3];
-        menuItems[0] = new MenuItem("How to use");
+        menuItems[0] = new MenuItem("Anleitung");
         menuItems[0].setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
+            alert.setTitle("Informationen");
             alert.setHeaderText(null);
-            alert.setContentText("Ist der PC rot ist er ausgeschaltet oder nicht erreichbar.\n" +
-                    "Ist der PC grün ist er eingeschaltet.\n" +
-                    "Bei einem eifachen Click auf einen Computer wird der Computer mit WOL aufgeweckt.\n" +
-                    "Bei einem doppelten Click auf einen Computer wird sich über RDP mit dem Computer verbunden.\n"+
-                    "Mit change PC-Info kann man die MAC und IP Adressen der PCs ändern.\n"+
-                    "Manchmal werden einige PCs nicht richtig verschoben.");
+            alert.setContentText("Wenn der PC rot ist, ist ausgeschaltet oder nicht erreichbar.\n" +
+                    "Ist der PC grün, ist er eingeschaltet.\n" +
+                    "Bei einem eifachen Click auf einen Computer wird der Computer per WOL aufgeweckt.\n" +
+                    "Bei einem doppelten Click auf einen Computer wird man per RDP mit dem Computer verbunden.\n" +
+                    "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n" +
+                    "Manchmal können einige PCs nicht richtig verschoben werden.");
             alert.showAndWait();
         });
 
-        menuItems[1] = new MenuItem("change PC-Info");
+        menuItems[1] = new MenuItem("PC-Info ändern");
         menuItems[1].setOnAction(event -> {
             if (onSNLab) {
                 openCSVFile(new File("computer.csv"));
@@ -77,7 +77,7 @@ public class Main extends Application {
 
         });
 
-        menuItems[2] = new MenuItem("change Room");
+        menuItems[2] = new MenuItem("Raum wechseln");
         menuItems[2].setOnAction(event -> {
             if (onSNLab) {
                 onSNLab = false;
@@ -104,7 +104,6 @@ public class Main extends Application {
 
                 menubar.setPrefWidth(sceneWidth);
                 group2.getChildren().add(menubar);
-
             } else {
                 onSNLab = true;
                 sceneHeight = 620;
@@ -136,13 +135,12 @@ public class Main extends Application {
         drawElectronicLab(primaryStage);
         drawSNLab(primaryStage);
 
-        Menu menu = new Menu("Options");
+        Menu menu = new Menu("Optionen");
         menu.getItems().addAll(menuItems);
         menubar.setPrefWidth(scene.getWidth());
         menubar.getMenus().add(menu);
         menubar.setPrefHeight(25);
         menubar.setMinHeight(25);
-        //System.out.println(menubar.getHeight());
 
         group.getChildren().add(menubar);
 
@@ -165,7 +163,7 @@ public class Main extends Application {
         labels = new Label[4][6];
         int xCoord = 0;
         int labelCount = 0;
-        List<List<String>> list = readfromcsv(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+        List<List<String>> list = readfromcsv("computer.csv"); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
 
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
@@ -173,7 +171,8 @@ public class Main extends Application {
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
-                imageView.setY((100 * j)+20);
+                imageView.setY((100 * j) + 20);
+
 
                 int finalI = i;
                 int finalJ = j;
@@ -182,6 +181,11 @@ public class Main extends Application {
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
                             Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ]));
                             thread2.start();
+//                            Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
+//                            newAlert.setTitle("WOL");
+//                            newAlert.setHeaderText(null);
+//                            newAlert.setContentText("WOL-Paket wurde versendet!");
+//                            newAlert.showAndWait();
                         }, 500, TimeUnit.MILLISECONDS);
 
                     } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
@@ -259,7 +263,15 @@ public class Main extends Application {
 
     }
 
-    private void drawElectronicLab (Stage primaryStage) throws FileNotFoundException {
+    private void wakeOnLanAlert() {
+        Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
+        newAlert.setTitle("WOL");
+        newAlert.setHeaderText(null);
+        newAlert.setContentText("WOL-Paket wurde versendet!");
+        newAlert.showAndWait();
+    }
+
+    private void drawElectronicLab(Stage primaryStage) throws FileNotFoundException {
 
         group2 = new Group();
         sceneWidth = 880;
@@ -270,7 +282,7 @@ public class Main extends Application {
         labels2 = new Label[6][2];
         int xCoord = 0;
         int labelCount = 0;
-        List<List<String>> list = readfromcsv2(); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+        List<List<String>> list = readfromcsv("computer2.csv"); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
 
         for (int i = 0; i < 6; ++i) {
             for (int j = 0; j < 2; ++j) {
@@ -278,7 +290,7 @@ public class Main extends Application {
                 imageView.setFitHeight(100);
                 imageView.setFitWidth(80);
                 imageView.setX(xCoord);
-                imageView.setY((300 * j)+100);
+                imageView.setY((300 * j) + 100);
 
                 int finalI = i;
                 int finalJ = j;
@@ -287,6 +299,7 @@ public class Main extends Application {
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
                             Thread thread2 = new Thread(new WakeOnLan(computer2[finalI][finalJ]));
                             thread2.start();
+                            wakeOnLanAlert();
                         }, 500, TimeUnit.MILLISECONDS);
 
                     } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
@@ -395,7 +408,7 @@ public class Main extends Application {
         rectangle2.setX(computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth());
         rectangle2.setWidth(computer[3][0].getImageView().getX() - (computer[2][0].getImageView().getX() + computer[2][0].getImageView().getFitWidth()));
 
-        menubar.setPrefWidth(menubar.getWidth()*multiplikator);
+        menubar.setPrefWidth(menubar.getWidth() * multiplikator);
     }
 
 
@@ -467,24 +480,9 @@ public class Main extends Application {
      *
      * @return Liste mit Listen von Strings
      */
-    public List<List<String>> readfromcsv() {
+    public List<List<String>> readfromcsv(String filename) {
         List<List<String>> list = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("computer.csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(",");
-                list.add(Arrays.asList(values));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return list;
-    }
-
-    public List<List<String>> readfromcsv2() {
-        List<List<String>> list = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("computer2.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -501,15 +499,15 @@ public class Main extends Application {
     /**
      * öffnet übergebene Dateien
      */
-    public void openCSVFile(File file){
+    public void openCSVFile(File file) {
         //überprüft, ob Desktop unterstützt wird
-        if(!Desktop.isDesktopSupported()){
+        if (!Desktop.isDesktopSupported()) {
             System.out.println("Desktop wird nicht unterstützt!");
             return;
         }
 
         Desktop desktop = Desktop.getDesktop();
-        if(file.exists()) {
+        if (file.exists()) {
             try {
                 desktop.open(file);
             } catch (IOException e) {
