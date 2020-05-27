@@ -25,21 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/NetworkManager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jnlp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,8 +297,16 @@
       <workItem from="1590439819829" duration="15000" />
       <workItem from="1590497919708" duration="1535000" />
       <workItem from="1590605126258" duration="1198000" />
-      <workItem from="1590607742906" duration="2194000" />
+      <workItem from="1590607742906" duration="3480000" />
     </task>
+    <task id="LOCAL-00001" summary="smallFixes">
+      <created>1590610354241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590610354241</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,6 +330,9 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="smallFixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="smallFixes" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1590608598105">
@@ -402,10 +399,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587898367688" />
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590608897476">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590610801879">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1590608897476" />
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1590610801879" />
     <state x="131" y="43" key="new project wizard" timestamp="1589488908295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
