@@ -72,4 +72,8 @@ public class Computer {
     public void setStdlabely(double stdlabely) {
         this.stdlabely = stdlabely;
     }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
 }

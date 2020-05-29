@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TP_Projekt3" />
+      <artifact name="TP_Projekt" />
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
@@ -25,7 +25,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/computer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/computer2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/MagicPacket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,20 +51,6 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="DebuggerManager">
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
@@ -128,14 +131,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/icon.ico" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SchularbeitSimonNiederwolfsgruber" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.WakeOnLanTestClass">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -205,6 +208,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WakeOnLanTestClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.WakeOnLanTestClass" />
+      <module name="TP_Projekt" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -244,6 +261,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WakeOnLanTestClass" />
         <item itemvalue="Application.WakeOnLan" />
       </list>
     </recent_temporary>
@@ -298,6 +316,8 @@
       <workItem from="1590497919708" duration="1535000" />
       <workItem from="1590605126258" duration="1198000" />
       <workItem from="1590607742906" duration="3480000" />
+      <workItem from="1590665205231" duration="4272000" />
+      <workItem from="1590747982205" duration="10232000" />
     </task>
     <task id="LOCAL-00001" summary="smallFixes">
       <created>1590610354241</created>
@@ -335,10 +355,10 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1590608598105">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1590755705001">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1590608598105" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1590755705001" />
     <state x="550" y="162" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590418322816">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -351,26 +371,30 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="116" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1590609861418" />
-    <state x="504" y="91" key="FileChooserDialogImpl" timestamp="1590605596126">
+    <state x="426" y="68" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1590758995267">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="504" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1590605596126" />
-    <state width="1323" height="191" key="GridCell.Tab.0.bottom" timestamp="1590606328200">
+    <state x="426" y="68" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1590758995267" />
+    <state x="504" y="91" key="FileChooserDialogImpl" timestamp="1590758159660">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1590606328200" />
-    <state width="1323" height="191" key="GridCell.Tab.0.center" timestamp="1590606328200">
+    <state x="504" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1590758159660" />
+    <state width="1323" height="326" key="GridCell.Tab.0.bottom" timestamp="1590759605261">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1590606328200" />
-    <state width="1323" height="191" key="GridCell.Tab.0.left" timestamp="1590606328200">
+    <state width="1323" height="326" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1590759605261" />
+    <state width="1323" height="326" key="GridCell.Tab.0.center" timestamp="1590759605261">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1590606328200" />
-    <state width="1323" height="191" key="GridCell.Tab.0.right" timestamp="1590606328200">
+    <state width="1323" height="326" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1590759605261" />
+    <state width="1323" height="326" key="GridCell.Tab.0.left" timestamp="1590759605261">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="191" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1590606328200" />
+    <state width="1323" height="326" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1590759605261" />
+    <state width="1323" height="326" key="GridCell.Tab.0.right" timestamp="1590759605261">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="326" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1590759605261" />
     <state width="1323" height="306" key="GridCell.Tab.1.bottom" timestamp="1590424552845">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -391,30 +415,30 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="395" y="84" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1590183029203" />
-    <state x="322" y="25" width="998" height="708" key="SettingsEditor" timestamp="1590608919291">
+    <state x="322" y="25" width="998" height="708" key="SettingsEditor" timestamp="1590748760331">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="322" y="25" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1590608919291" />
+    <state x="322" y="25" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1590748760331" />
     <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1587898367688">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587898367688" />
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590610801879">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590758867766">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1590610801879" />
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1590758867766" />
     <state x="131" y="43" key="new project wizard" timestamp="1589488908295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="131" y="43" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1589488908295" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1590411201307">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1590749794861">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1590411201307" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1590608763603">
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1590749794861" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1590755712599">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1590608763603" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1590755712599" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

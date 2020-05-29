@@ -1,12 +1,13 @@
 package sample;
 
-import javafx.scene.control.Alert;
-
+import javax.swing.*;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * @author Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner
@@ -14,11 +15,16 @@ import java.net.UnknownHostException;
  */
 
 class WakeOnLan implements Runnable {
-    Computer computer;
+    private final Computer computer;
+    private boolean isRed = false;
+    private final Main main;
 
-    public WakeOnLan(Computer computer) {
+    public WakeOnLan(Computer computer, Main main) {
         this.computer = computer;
+        this.main = main;
     }
+
+    public static final int PORT = 9;
 
     /**
      * übergebener Computer wird über WOL aufgeweckt
@@ -26,7 +32,7 @@ class WakeOnLan implements Runnable {
      * @param computer Computer der aufgeweckt werden soll
      */
     public void wakeOnLan(Computer computer) {
-        int port = 9;
+
         String ipStr = computer.getIp();
         String macStr = computer.getMac();
 
@@ -34,50 +40,62 @@ class WakeOnLan implements Runnable {
             byte[] macBytes = getMacBytes(macStr);
             byte[] bytes = new byte[6 + 16 * macBytes.length];
             for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte) 0xFF;
+                bytes[i] = (byte) 0xff;
             }
             for (int i = 6; i < bytes.length; i += macBytes.length) {
                 System.arraycopy(macBytes, 0, bytes, i, macBytes.length);
             }
 
             InetAddress address = InetAddress.getByName(ipStr);
-            DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, port); //Paket wird erstellt
+            DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, PORT);
             DatagramSocket socket = new DatagramSocket();
-            socket.send(packet); //Paket wird gesendet
+            socket.send(packet);
+            long time1 = System.currentTimeMillis();
             socket.close();
-            /*
-            Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
-            newAlert.setTitle("WOL");
-            newAlert.setHeaderText(null);
-            newAlert.setContentText("WOL-Paket wurde versendet!");
-            newAlert.showAndWait();
-             */
-            System.out.println("Wake-on-LAN Paket gesendet.");
+            Timer t = new Timer();
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if (isRed) {
+                        main.changeToWhite(computer);
+                        isRed = false;
+                    } else {
+                        main.changeToRed(computer);
+                        isRed = true;
 
+                    }
+                }
+            }, 0, 500);
+            PingComputer pc = new PingComputer(computer, main);
+            long time2 = System.currentTimeMillis();
+            while (!pc.pingComputer(computer)) {
+                if ((time2 - time1) > 60000) {
+                    t.cancel();
+                    throw new Exception();
+                }
+                Thread.sleep(1000);
+                time2 = System.currentTimeMillis();
+            }
+            t.cancel();
+            main.changeToGreen(computer);
         } catch (Exception e) {
-            System.err.println("Wake-on-LAN Paket nicht gesendet!");
+            main.changeToRed(computer);
+            JOptionPane.showMessageDialog(null, "PC konnte nicht aufgeweckt werden!");
         }
     }
 
-    /**
-     * Wandelt übergebene MAC-Adresse von String in bytes um
-     *
-     * @param macStr MAC-Adresse als String
-     * @return MAC-Adresse in Bytes
-     * @throws IllegalArgumentException
-     */
-    private static byte[] getMacBytes(String macStr) throws IllegalArgumentException {
+    private byte[] getMacBytes(String macStr) throws IllegalArgumentException {
         byte[] bytes = new byte[6];
         String[] hex = macStr.split("(\\:|\\-)");
         if (hex.length != 6) {
-            throw new IllegalArgumentException("MAC-Adresse Ungültig.");
+            throw new IllegalArgumentException("Ungültige MAC-Adresse.");
         }
         try {
             for (int i = 0; i < 6; i++) {
                 bytes[i] = (byte) Integer.parseInt(hex[i], 16);
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Ungültige Hex-Ziffer in MAC-Adresse.");
+            throw new IllegalArgumentException("Ungültige HEX-Ziffer in der MAC-Adresse!");
         }
         return bytes;
     }
@@ -94,11 +112,18 @@ class WakeOnLan implements Runnable {
 
 class PingComputer implements Runnable {
     private Computer computer;
+    private Main main;
 
-    public PingComputer(Computer computer) {
+    public PingComputer(Computer computer, Main main) {
         this.computer = computer;
+        this.main = main;
     }
 
+
+    /**
+     * @param computer Computer, der gepingt werden soll
+     * @return true wenn eingeschaltet; false wenn ausgeschaltet
+     */
     public boolean pingComputer(Computer computer) {
         InetAddress inetAddress = null;
         try {
@@ -108,8 +133,8 @@ class PingComputer implements Runnable {
         }
         try {
             if (inetAddress != null) {
-                if (inetAddress.isReachable(2000)) //Der Computer muss Innerhalb von 2 Sek antworten,
-                    return true;                           //sonst wird er als nichterreichbar eingestuft
+                if (inetAddress.isReachable(2000)) //*Der Computer muss Innerhalb von 2 Sek antworten, sonst wird er als nichterreichbar eingestuft
+                    return true;
                 else
                     return false;
             }
@@ -125,7 +150,6 @@ class PingComputer implements Runnable {
      */
     @Override
     public void run() {
-        Main main = new Main();
         if (pingComputer(this.computer)) {
             main.changeToGreen(this.computer);
         } else {

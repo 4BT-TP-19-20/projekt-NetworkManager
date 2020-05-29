@@ -58,12 +58,12 @@ public class Main extends Application {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informationen");
             alert.setHeaderText(null);
-            alert.setContentText("Wenn der PC rot ist, ist ausgeschaltet oder nicht erreichbar.\n" +
+            alert.setContentText("Wenn der PC rot ist, ist er ausgeschaltet oder nicht erreichbar.\n" +
                     "Ist der PC grün, ist er eingeschaltet.\n" +
                     "Bei einem eifachen Click auf einen Computer wird der Computer per WOL aufgeweckt.\n" +
                     "Bei einem doppelten Click auf einen Computer wird man per RDP mit dem Computer verbunden.\n" +
                     "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n" +
-                    "Manchmal können einige PCs nicht richtig verschoben werden.");
+                    "Bei schnellem Vergrößern/Verkleinern kommt java manchmal nicht hinterher und einige PCs verschieben sich nicht");
             alert.showAndWait();
         });
 
@@ -152,6 +152,12 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Initialisiert das SN-Labor
+     *
+     * @param primaryStage Stage auf der die Scene initialisiert wird
+     * @throws FileNotFoundException wird die CSV-Datei nicht gefunden, wird eine FileNotFoundException geworfen
+     */
     private void drawSNLab(Stage primaryStage) throws FileNotFoundException {
 
         group = new Group();
@@ -163,7 +169,7 @@ public class Main extends Application {
         labels = new Label[4][6];
         int xCoord = 0;
         int labelCount = 0;
-        List<List<String>> list = readfromcsv("computer.csv"); //Kofigurationsdatei mit MAC und IP Adressen wird eingelesen
+        List<List<String>> list = readfromcsv("computer.csv");
 
         for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < 6; ++j) {
@@ -179,13 +185,8 @@ public class Main extends Application {
                 imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
                     if (event.getClickCount() == 1) { //bei einfachem Click wird der Computer aufgeweckt
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
-                            Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ]));
+                            Thread thread2 = new Thread(new WakeOnLan(computer[finalI][finalJ], this));
                             thread2.start();
-//                            Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
-//                            newAlert.setTitle("WOL");
-//                            newAlert.setHeaderText(null);
-//                            newAlert.setContentText("WOL-Paket wurde versendet!");
-//                            newAlert.showAndWait();
                         }, 500, TimeUnit.MILLISECONDS);
 
                     } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
@@ -243,13 +244,14 @@ public class Main extends Application {
             updateHeight((double) newSceneHight);
         });
 
+        Main m = this; //soll den Fehler, dass GUI Elemente nicht vom Thread aus verändert werden
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override
             public void run() {
                 for (int i = 0; i < 4; ++i) {
                     for (int j = 0; j < 6; ++j) {
-                        Thread t = new Thread(new PingComputer(computer[i][j]));
+                        Thread t = new Thread(new PingComputer(computer[i][j], m));
                         t.start();
                     }
                 }
@@ -263,13 +265,13 @@ public class Main extends Application {
 
     }
 
-    private void wakeOnLanAlert() {
-        Alert newAlert = new Alert(Alert.AlertType.INFORMATION);
-        newAlert.setTitle("WOL");
-        newAlert.setHeaderText(null);
-        newAlert.setContentText("WOL-Paket wurde versendet!");
-        newAlert.showAndWait();
-    }
+
+    /**
+     * Initialisiert das Elektornik-Labor
+     *
+     * @param primaryStage Stage auf der die Scene initialisiert wird
+     * @throws FileNotFoundException wird die CSV-Datei nicht gefunden, wird eine FileNotFoundException geworfen
+     */
 
     private void drawElectronicLab(Stage primaryStage) throws FileNotFoundException {
 
@@ -297,9 +299,8 @@ public class Main extends Application {
                 imageView.setOnMouseClicked(event -> { //Wenn ein Computer geclickt wird, wird der Code im Lamda ausgefürht
                     if (event.getClickCount() == 1) { //bei einfachem Click wird der Computer aufgeweckt
                         scheduledFuture = executor.schedule(() -> { //wird nur ausgefürht, wenn innerhalb von 500ms kein 2. Click erfolgt
-                            Thread thread2 = new Thread(new WakeOnLan(computer2[finalI][finalJ]));
+                            Thread thread2 = new Thread(new WakeOnLan(computer2[finalI][finalJ], this));
                             thread2.start();
-                            wakeOnLanAlert();
                         }, 500, TimeUnit.MILLISECONDS);
 
                     } else if (event.getClickCount() == 2) { //bei doppeltem Click wird RDP ausgeführt
@@ -364,14 +365,14 @@ public class Main extends Application {
         });
 
         scene2.setFill(Color.DARKGRAY);
-
+        Main m = this;
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override
             public void run() {
                 for (int i = 0; i < 6; ++i) {
                     for (int j = 0; j < 2; ++j) {
-                        Thread t = new Thread(new PingComputer(computer2[i][j]));
+                        Thread t = new Thread(new PingComputer(computer2[i][j], m));
                         t.start();
                     }
                 }
@@ -381,12 +382,13 @@ public class Main extends Application {
         primaryStage.setOnCloseRequest(event -> {
             t.cancel(); //sonst läuft Timer immer weiter, auch wenn main thread beendet wird
         });
+
     }
 
     /**
      * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
      *
-     * @param newSceneWidth neue Größe der Scene
+     * @param newSceneWidth neue Breite der Scene
      */
     private void updateWidth(double newSceneWidth) {
         double multiplikator = newSceneWidth / sceneWidth;
@@ -411,7 +413,11 @@ public class Main extends Application {
         menubar.setPrefWidth(menubar.getWidth() * multiplikator);
     }
 
-
+    /**
+     * Passt die Breite der Elemente in der Scene an, wenn das Fenster breiter oder schmaler wird
+     *
+     * @param newSceneWidth neue Breite der Scene
+     */
     private void updateWidth2(double newSceneWidth) {
         double multiplikator = newSceneWidth / sceneWidth;
         sceneWidth = newSceneWidth;
@@ -441,7 +447,7 @@ public class Main extends Application {
     /**
      * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
      *
-     * @param newSceneHeight aktuelle SceneHeight
+     * @param newSceneHeight neue Höhe der Scene
      */
     private void updateHeight(double newSceneHeight) {
         double multiplikator = newSceneHeight / sceneHeight;
@@ -459,6 +465,11 @@ public class Main extends Application {
     }
 
 
+    /**
+     * Passt die Höhe der Elemente in der Scene an, wenn das Fenster höher oder tiefer gemacht wird
+     *
+     * @param newSceneHeight neue Höhe der Scene
+     */
     private void updateHeight2(double newSceneHeight) {
         double multiplikator = newSceneHeight / sceneHeight;
         sceneHeight = newSceneHeight;
@@ -478,6 +489,7 @@ public class Main extends Application {
     /**
      * liest CSV-Datei aus
      *
+     * @param filename Dateiname als String, aus der gelesen wird
      * @return Liste mit Listen von Strings
      */
     public List<List<String>> readfromcsv(String filename) {
@@ -498,6 +510,8 @@ public class Main extends Application {
 
     /**
      * öffnet übergebene Dateien
+     *
+     * @param file File, das geöffnet wird
      */
     public void openCSVFile(File file) {
         //überprüft, ob Desktop unterstützt wird
@@ -541,6 +555,18 @@ public class Main extends Application {
         colorAdjust.setHue(0.6);
         colorAdjust.setBrightness(0);
         colorAdjust.setSaturation(1);
+        computer.getImageView().setEffect(colorAdjust);
+    }
+
+
+    /**
+     * ändert die Farbe des übergebenen Computers zu weiß
+     *
+     * @param computer Computer, dessen Farbe geändert wird
+     */
+    public void changeToWhite(Computer computer) {
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setSaturation(0);
         computer.getImageView().setEffect(colorAdjust);
     }
 
