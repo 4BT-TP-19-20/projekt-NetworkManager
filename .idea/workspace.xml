@@ -25,23 +25,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/computer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/computer2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/computer2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/MagicPacket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -317,7 +300,7 @@
       <workItem from="1590605126258" duration="1198000" />
       <workItem from="1590607742906" duration="3480000" />
       <workItem from="1590665205231" duration="4272000" />
-      <workItem from="1590747982205" duration="10232000" />
+      <workItem from="1590747982205" duration="10697000" />
     </task>
     <task id="LOCAL-00001" summary="smallFixes">
       <created>1590610354241</created>
@@ -435,10 +418,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1590749794861" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1590755712599">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1590760078671">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1590755712599" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1590760078671" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
