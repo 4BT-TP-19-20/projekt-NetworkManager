@@ -62,14 +62,13 @@ class WakeOnLan implements Runnable {
                     } else {
                         main.changeToRed(computer);
                         isRed = true;
-
                     }
                 }
             }, 0, 500);
             PingComputer pc = new PingComputer(computer, main);
             long time2 = System.currentTimeMillis();
             while (!pc.pingComputer(computer)) {
-                if ((time2 - time1) > 60000) {
+                if ((time2 - time1) > 120000) {
                     t.cancel();
                     throw new Exception();
                 }
@@ -84,6 +83,13 @@ class WakeOnLan implements Runnable {
         }
     }
 
+    /**
+     * Wandelt MAC-Adresse von String zu byte um
+     *
+     * @param macStr MAC-Adresse als String
+     * @return MAC-Adresse in bytes
+     * @throws IllegalArgumentException
+     */
     private byte[] getMacBytes(String macStr) throws IllegalArgumentException {
         byte[] bytes = new byte[6];
         String[] hex = macStr.split("(\\:|\\-)");
@@ -104,7 +110,7 @@ class WakeOnLan implements Runnable {
      * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
-    public void run() {
+    public void run() throws IllegalArgumentException {
         wakeOnLan(computer);
     }
 }
@@ -124,22 +130,18 @@ class PingComputer implements Runnable {
      * @param computer Computer, der gepingt werden soll
      * @return true wenn eingeschaltet; false wenn ausgeschaltet
      */
-    public boolean pingComputer(Computer computer) {
+    public boolean pingComputer(Computer computer) throws IOException {
         InetAddress inetAddress = null;
         try {
             inetAddress = InetAddress.getByName(computer.getIp());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        try {
-            if (inetAddress != null) {
-                if (inetAddress.isReachable(2000)) //*Der Computer muss Innerhalb von 2 Sek antworten, sonst wird er als nichterreichbar eingestuft
-                    return true;
-                else
-                    return false;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (inetAddress != null) {
+            if (inetAddress.isReachable(2000)) //*Der Computer muss Innerhalb von 2 Sek antworten, sonst wird er als nichterreichbar eingestuft
+                return true;
+            else
+                return false;
         }
 
         return false;
@@ -150,10 +152,14 @@ class PingComputer implements Runnable {
      */
     @Override
     public void run() {
-        if (pingComputer(this.computer)) {
-            main.changeToGreen(this.computer);
-        } else {
-            main.changeToRed(this.computer);
+        try {
+            if (pingComputer(this.computer)) {
+                main.changeToGreen(this.computer);
+            } else {
+                main.changeToRed(this.computer);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
@@ -170,23 +176,24 @@ class RemoteAccess implements Runnable {
      *
      * @param computer Computer, mit dem sich verbunden wird
      */
-    public void remoteAccess(Computer computer) {
+    public void remoteAccess(Computer computer) throws IOException {
         String ip = computer.getIp();
         Process p = null;
-        try {
-            p = Runtime.getRuntime().exec("cmdkey /generic:" + ip);
-            p.destroy();
-            Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        p = Runtime.getRuntime().exec("cmdkey /generic:" + ip);
+        p.destroy();
+        Runtime.getRuntime().exec("mstsc /v: " + ip + " /f /console");
     }
+
 
     /**
      * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
     public void run() {
-        remoteAccess(computer);
+        try {
+            remoteAccess(computer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

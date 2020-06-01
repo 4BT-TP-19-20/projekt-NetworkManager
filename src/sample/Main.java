@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.event.WindowAdapter;
 import java.io.*;
 import java.util.*;
 import java.util.List;
@@ -49,7 +50,7 @@ public class Main extends Application {
     private boolean onSNLab;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         onSNLab = true;
         MenuItem[] menuItems = new MenuItem[3];
@@ -63,7 +64,7 @@ public class Main extends Application {
                     "Bei einem eifachen Click auf einen Computer wird der Computer per WOL aufgeweckt.\n" +
                     "Bei einem doppelten Click auf einen Computer wird man per RDP mit dem Computer verbunden.\n" +
                     "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n" +
-                    "Bei schnellem Vergrößern/Verkleinern kommt java manchmal nicht hinterher und einige PCs verschieben sich nicht");
+                    "Bei schnellem Vergrößern/Verkleinern kommt java manchmal nicht hinterher und einige PCs verschieben sich nicht.");
             alert.showAndWait();
         });
 
@@ -132,8 +133,17 @@ public class Main extends Application {
 
         });
 
-        drawElectronicLab(primaryStage);
-        drawSNLab(primaryStage);
+        try {
+            drawElectronicLab(primaryStage);
+        } catch (FileNotFoundException | IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        try {
+            drawSNLab(primaryStage);
+        } catch (FileNotFoundException | IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
 
         Menu menu = new Menu("Optionen");
         menu.getItems().addAll(menuItems);
@@ -147,9 +157,15 @@ public class Main extends Application {
         primaryStage.setTitle("NetworkManager");
         primaryStage.setMinWidth(350);
         primaryStage.setMinHeight(300);
-        primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
+        try {
+            primaryStage.getIcons().add(new Image(new FileInputStream("icon.png")));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
     }
 
     /**
@@ -158,7 +174,7 @@ public class Main extends Application {
      * @param primaryStage Stage auf der die Scene initialisiert wird
      * @throws FileNotFoundException wird die CSV-Datei nicht gefunden, wird eine FileNotFoundException geworfen
      */
-    private void drawSNLab(Stage primaryStage) throws FileNotFoundException {
+    private void drawSNLab(Stage primaryStage) throws FileNotFoundException, IllegalArgumentException {
 
         group = new Group();
         sceneWidth = 700;
@@ -178,7 +194,6 @@ public class Main extends Application {
                 imageView.setFitWidth(100);
                 imageView.setX(xCoord);
                 imageView.setY((100 * j) + 20);
-
 
                 int finalI = i;
                 int finalJ = j;
@@ -273,7 +288,7 @@ public class Main extends Application {
      * @throws FileNotFoundException wird die CSV-Datei nicht gefunden, wird eine FileNotFoundException geworfen
      */
 
-    private void drawElectronicLab(Stage primaryStage) throws FileNotFoundException {
+    private void drawElectronicLab(Stage primaryStage) throws FileNotFoundException, IllegalArgumentException {
 
         group2 = new Group();
         sceneWidth = 880;
@@ -558,6 +573,13 @@ public class Main extends Application {
         computer.getImageView().setEffect(colorAdjust);
     }
 
+    public void showDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("MessageBox");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
+    }
 
     /**
      * ändert die Farbe des übergebenen Computers zu weiß
@@ -573,6 +595,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
         System.exit(0);
     }
 
