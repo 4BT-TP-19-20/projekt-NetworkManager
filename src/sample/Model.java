@@ -4,10 +4,8 @@ import javafx.application.Platform;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.InputStream;
+import java.net.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -59,12 +57,12 @@ class WakeOnLan implements Runnable {
                 @Override
                 public void run() {
                     if (isRed) {
-                        Platform.runLater(()->{
+                        Platform.runLater(() -> {
                             main.changeToWhite(computer);
                         });
                         isRed = false;
                     } else {
-                        Platform.runLater(()->{
+                        Platform.runLater(() -> {
                             main.changeToRed(computer);
                         });
                         isRed = true;
@@ -82,11 +80,11 @@ class WakeOnLan implements Runnable {
                 time2 = System.currentTimeMillis();
             }
             t.cancel();
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 main.changeToGreen(computer);
             });
         } catch (Exception e) {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 main.changeToRed(computer);
             });
             JOptionPane.showMessageDialog(null, "PC konnte nicht aufgeweckt werden!");
@@ -108,7 +106,7 @@ class WakeOnLan implements Runnable {
         }
         try {
             for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte)Integer.parseUnsignedInt(hex[i], 16);
+                bytes[i] = (byte) Integer.parseUnsignedInt(hex[i], 16);
                 //bytes[i] = (byte) hexToInt(hex[i]);
             }
         } catch (NumberFormatException e) {
@@ -117,10 +115,10 @@ class WakeOnLan implements Runnable {
         return bytes;
     }
 
-    private int hexToInt (String toint) {
+    private int hexToInt(String toint) {
 
         int intvalue = 0;
-        int hoch = toint.length()-1;
+        int hoch = toint.length() - 1;
         int zahlensystem = 16;
 
         for (int i = 0; i < toint.length(); ++i) {
@@ -130,7 +128,7 @@ class WakeOnLan implements Runnable {
             } catch (NumberFormatException e) {
                 int sepp = toint.charAt(i) - 65;
                 sepp += 10;
-                intvalue += Integer.parseInt(""+sepp) * Math.pow(zahlensystem, hoch);
+                intvalue += Integer.parseInt("" + sepp) * Math.pow(zahlensystem, hoch);
             }
 
             --hoch;
@@ -139,12 +137,63 @@ class WakeOnLan implements Runnable {
         return intvalue;
     }
 
+    public void wakeOnLANoverServer() {
+        try {
+            URL myURL = new URL(("http://10.10.30.15/wakeUp.php?mymac=" + this.computer.getMac()));
+            HttpURLConnection myURLConnection = (HttpURLConnection) myURL.openConnection();
+            myURLConnection.connect();
+            InputStream is = myURLConnection.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            long time1 = System.currentTimeMillis();
+            Timer t = new Timer();
+            t.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    if (isRed) {
+                        Platform.runLater(() -> {
+                            main.changeToWhite(computer);
+                        });
+                        isRed = false;
+                    } else {
+                        Platform.runLater(() -> {
+                            main.changeToRed(computer);
+                        });
+                        isRed = true;
+                    }
+                }
+            }, 0, 500);
+            PingComputer pc = new PingComputer(computer, main);
+            long time2 = System.currentTimeMillis();
+            while (!pc.pingComputer(computer)) {
+                if ((time2 - time1) > 120000) {
+                    t.cancel();
+                    throw new Exception();
+                }
+                Thread.sleep(1000);
+                time2 = System.currentTimeMillis();
+            }
+            t.cancel();
+            Platform.runLater(() -> {
+                main.changeToGreen(computer);
+            });
+        } catch (Exception e) {
+            Platform.runLater(() -> {
+                main.changeToRed(computer);
+            });
+            JOptionPane.showMessageDialog(null, "PC konnte nicht aufgeweckt werden!");
+        }
+    }
+
     /**
      * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
     @Override
     public void run() throws IllegalArgumentException {
-        wakeOnLan(computer);
+//        wakeOnLan(computer);
+        wakeOnLANoverServer();
     }
 }
 
@@ -187,11 +236,11 @@ class PingComputer implements Runnable {
     public void run() {
         try {
             if (pingComputer(this.computer)) {
-                Platform.runLater(()->{
+                Platform.runLater(() -> {
                     main.changeToGreen(this.computer);
                 });
             } else {
-                Platform.runLater(()->{
+                Platform.runLater(() -> {
                     main.changeToRed(this.computer);
                 });
             }
