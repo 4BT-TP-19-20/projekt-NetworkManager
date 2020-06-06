@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.application.Platform;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -36,7 +38,7 @@ class WakeOnLan implements Runnable {
         String ipStr = computer.getIp();
         String macStr = computer.getMac();
 
-        try {
+        try {                                                                                   //ob do!!!!!!!!!!!!!!!!!!!!!
             byte[] macBytes = getMacBytes(macStr);
             byte[] bytes = new byte[6 + 16 * macBytes.length];
             for (int i = 0; i < 6; i++) {
@@ -57,10 +59,14 @@ class WakeOnLan implements Runnable {
                 @Override
                 public void run() {
                     if (isRed) {
-                        main.changeToWhite(computer);
+                        Platform.runLater(()->{
+                            main.changeToWhite(computer);
+                        });
                         isRed = false;
                     } else {
-                        main.changeToRed(computer);
+                        Platform.runLater(()->{
+                            main.changeToRed(computer);
+                        });
                         isRed = true;
                     }
                 }
@@ -76,9 +82,13 @@ class WakeOnLan implements Runnable {
                 time2 = System.currentTimeMillis();
             }
             t.cancel();
-            main.changeToGreen(computer);
+            Platform.runLater(()->{
+                main.changeToGreen(computer);
+            });
         } catch (Exception e) {
-            main.changeToRed(computer);
+            Platform.runLater(()->{
+                main.changeToRed(computer);
+            });
             JOptionPane.showMessageDialog(null, "PC konnte nicht aufgeweckt werden!");
         }
     }
@@ -98,12 +108,35 @@ class WakeOnLan implements Runnable {
         }
         try {
             for (int i = 0; i < 6; i++) {
-                bytes[i] = (byte) Integer.parseInt(hex[i], 16);
+                bytes[i] = (byte)Integer.parseUnsignedInt(hex[i], 16);
+                //bytes[i] = (byte) hexToInt(hex[i]);
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Ungültige HEX-Ziffer in der MAC-Adresse!");
         }
         return bytes;
+    }
+
+    private int hexToInt (String toint) {
+
+        int intvalue = 0;
+        int hoch = toint.length()-1;
+        int zahlensystem = 16;
+
+        for (int i = 0; i < toint.length(); ++i) {
+
+            try {
+                intvalue += Integer.parseInt(String.valueOf(toint.charAt(i))) * Math.pow(zahlensystem, hoch);
+            } catch (NumberFormatException e) {
+                int sepp = toint.charAt(i) - 65;
+                sepp += 10;
+                intvalue += Integer.parseInt(""+sepp) * Math.pow(zahlensystem, hoch);
+            }
+
+            --hoch;
+        }
+
+        return intvalue;
     }
 
     /**
@@ -154,9 +187,13 @@ class PingComputer implements Runnable {
     public void run() {
         try {
             if (pingComputer(this.computer)) {
-                main.changeToGreen(this.computer);
+                Platform.runLater(()->{
+                    main.changeToGreen(this.computer);
+                });
             } else {
-                main.changeToRed(this.computer);
+                Platform.runLater(()->{
+                    main.changeToRed(this.computer);
+                });
             }
         } catch (IOException e) {
             e.printStackTrace();
