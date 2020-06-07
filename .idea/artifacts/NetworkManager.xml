@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="NetworkManager">
+    <output-path>$PROJECT_DIR$/out/artifacts/NetworkManager</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="height" value="600" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="windowsIcon" value="$PROJECT_DIR$/icon.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="NetworkManager" />
+        <option name="vendor" value="Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner" />
+        <option name="version" value="1.0.0" />
+        <option name="width" value="700" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="NetworkManager.jar">
+        <element id="module-output" name="NetworkManager" />
+      </element>
+    </root>
+  </artifact>
+</component>

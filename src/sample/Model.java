@@ -137,6 +137,10 @@ class WakeOnLan implements Runnable {
         return intvalue;
     }
 
+
+    /**
+     * übergebener Computer wird über WOL aufgeweckt (über den server 10.10.30.15)
+     */
     public void wakeOnLANoverServer() {
         try {
             URL myURL = new URL(("http://10.10.30.15/wakeUp.php?mymac=" + this.computer.getMac()));

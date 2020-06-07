@@ -59,7 +59,7 @@ public class Main extends Application {
 
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("mac")) {
-            JOptionPane.showMessageDialog(null, "Oh mein Gott, du benutzsch net im Ernst grot MacOS\nBitte Loesch die...");
+            JOptionPane.showMessageDialog(null, "Oh mein Gott, du benutzsch net im Ernst grot MacOS\nBitte Loesch di...");
             System.exit(0);
         }
 
@@ -70,9 +70,9 @@ public class Main extends Application {
             String ownIP = inetAddress.getHostAddress();
 
             //System.out.println(ownIP);
-            if (!(ownIP.contains("10.10.30"))){
-                JOptionPane.showMessageDialog(null, "Falls du durch das VPN mit dem Schulnetz Verbunden bist drücke OK\n" +
-                        "Andernfalls starde die VPN-Verbindung oder verbinde dich direkt mit dem SN-Netz um das Programm richtig nutzen zu können.");
+            if (!(ownIP.contains("10.10.30"))) {
+                JOptionPane.showMessageDialog(null, "Falls du durch das VPN mit dem Schulnetz verbunden bist drücke OK\n" +
+                        "Andernfalls starte die VPN-Verbindung oder verbinde dich direkt mit dem SN-Netz, um das Programm richtig nutzen zu können.");
                 //System.exit(0);
             }
         } catch (UnknownHostException e) {
@@ -88,12 +88,13 @@ public class Main extends Application {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informationen");
             alert.setHeaderText(null);
-            alert.setContentText("DIESES PROGRMM IST FÜR DIE SCHULE AUSGELEGT UND WIRD NIRGENS ANDERS FUNKTIONIEREN, AUCH WENN DIE IP/MAC-ADRESSEN AN EIN ANDERES NETZ ANGEPASST WERDEN!!!\n\n" +
+            alert.setContentText("DIESES PROGRMM IST NUR FÜR DAS SN- UND ELEKTRONIKLABOR DER SCHULE UND WIRD SONST NIRGENDS FUNKTIONIEREN, AUCH WENN DIE IP/MAC-ADRESSEN AN EIN ANDERES NETZ ANGEPASST WERDEN!!!\n\n" +
                     "Wenn der PC rot ist, ist er ausgeschaltet oder nicht erreichbar.\n" +
-                    "Ist der PC grün, ist er eingeschaltet.\n" +
+                    "Ist der PC grün, ist er eingeschaltet.\n\n" +
                     "Bei einem eifachen Click auf einen Computer wird der Computer per WOL aufgeweckt.\n" +
                     "Bei einem doppelten Click auf einen Computer wird man per RDP mit dem Computer verbunden.\n" +
-                    "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n");
+                    "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n\n" +
+                    "Erstellt von Philipp Gruber, Matias Brandlechner und Simon Niederwolfsgruber");
             alert.showAndWait();
         });
 
@@ -162,7 +163,7 @@ public class Main extends Application {
 
         });
 
-        menuItems[3] = new MenuItem("Nas");
+        menuItems[3] = new MenuItem("NAS");
         menuItems[3].setOnAction(event -> {
             try {
                 String nasIP = readfromcsv("computer.csv").get(24).get(0);
@@ -570,7 +571,7 @@ public class Main extends Application {
     public void openCSVFile(File file) {
         //überprüft, ob Desktop unterstützt wird
         if (!Desktop.isDesktopSupported()) {
-            System.out.println("Desktop wird nicht unterstützt!");
+            System.err.println("Desktop wird nicht unterstützt!");
             return;
         }
 
