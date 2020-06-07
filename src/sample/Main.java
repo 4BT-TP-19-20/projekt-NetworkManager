@@ -16,11 +16,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.io.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.List;
+import java.util.Timer;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -52,19 +56,44 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("mac")) {
+            JOptionPane.showMessageDialog(null, "Oh mein Gott, du benutzsch net im Ernst grot MacOS\nBitte Loesch die...");
+            System.exit(0);
+        }
+
+        //Wenn man VPN hot donn kimp net richtige IP
+
+        try {
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ownIP = inetAddress.getHostAddress();
+
+            //System.out.println(ownIP);
+            if (!(ownIP.contains("10.10.30"))){
+                JOptionPane.showMessageDialog(null, "Falls du durch das VPN mit dem Schulnetz Verbunden bist drücke OK\n" +
+                        "Andernfalls starde die VPN-Verbindung oder verbinde dich direkt mit dem SN-Netz um das Programm richtig nutzen zu können.");
+                //System.exit(0);
+            }
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+
+
         onSNLab = true;
-        MenuItem[] menuItems = new MenuItem[3];
-        menuItems[0] = new MenuItem("Anleitung");
+        MenuItem[] menuItems = new MenuItem[4];
+        menuItems[0] = new MenuItem("Informationen");
         menuItems[0].setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informationen");
             alert.setHeaderText(null);
-            alert.setContentText("Wenn der PC rot ist, ist er ausgeschaltet oder nicht erreichbar.\n" +
+            alert.setContentText("DIESES PROGRMM IST FÜR DIE SCHULE AUSGELEGT UND WIRD NIRGENS ANDERS FUNKTIONIEREN, AUCH WENN DIE IP/MAC-ADRESSEN AN EIN ANDERES NETZ ANGEPASST WERDEN!!!\n\n" +
+                    "Wenn der PC rot ist, ist er ausgeschaltet oder nicht erreichbar.\n" +
                     "Ist der PC grün, ist er eingeschaltet.\n" +
                     "Bei einem eifachen Click auf einen Computer wird der Computer per WOL aufgeweckt.\n" +
                     "Bei einem doppelten Click auf einen Computer wird man per RDP mit dem Computer verbunden.\n" +
-                    "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n" +
-                    "Bei schnellem Vergrößern/Verkleinern kommt java manchmal nicht hinterher und einige PCs verschieben sich nicht.");
+                    "Mit PC-Info ändern kann man die MAC und IP Adressen der PCs ändern.\n");
             alert.showAndWait();
         });
 
@@ -131,6 +160,16 @@ public class Main extends Application {
                 group.getChildren().add(menubar);
             }
 
+        });
+
+        menuItems[3] = new MenuItem("Nas");
+        menuItems[3].setOnAction(event -> {
+            try {
+                String nasIP = readfromcsv("computer.csv").get(24).get(0);
+                Process builder = Runtime.getRuntime().exec("cmd /c start \\\\" + nasIP);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         try {
