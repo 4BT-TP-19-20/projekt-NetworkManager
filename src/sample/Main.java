@@ -71,7 +71,7 @@ public class Main extends Application {
             if (!(pc.pingComputer(c))) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warnung");
-                alert.setContentText("Du befindest dich wahrscheinlich nicht im Schulnetzwerk!\n" +
+                alert.setContentText("Du befindest dich höchstwahrscheinlich nicht im Schulnetzwerk!\n" +
                         "Verbinde dich mit dem Schulnetzwerk, um das Programm richtig nutzen zu können.");
                 alert.showAndWait();
             }

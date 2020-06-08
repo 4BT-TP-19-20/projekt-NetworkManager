@@ -174,7 +174,7 @@ class WakeOnLan implements Runnable {
             PingComputer pc = new PingComputer(computer, main);
             long time2 = System.currentTimeMillis();
             while (!pc.pingComputer(computer)) {
-                if ((time2 - time1) > 5000) {
+                if ((time2 - time1) > 120000) {
                     t.cancel();
                     throw new Exception();
                 }
