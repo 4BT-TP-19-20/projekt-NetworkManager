@@ -66,11 +66,9 @@ public class Main extends Application {
         //Wenn man VPN hot donn kimp net richtige IP
 
         try {
-            InetAddress inetAddress = InetAddress.getLocalHost();
-            String ownIP = inetAddress.getHostAddress();
-
-            //System.out.println(ownIP);
-            if (!(ownIP.contains("10.10.30"))) {
+            Computer c = new Computer("10.10.30.15");
+            PingComputer pc = new PingComputer(c, this);
+            if (!(pc.pingComputer(c))) {
                 JOptionPane.showMessageDialog(null, "Falls du durch das VPN mit dem Schulnetz verbunden bist drücke OK\n" +
                         "Andernfalls starte die VPN-Verbindung oder verbinde dich direkt mit dem SN-Netz, um das Programm richtig nutzen zu können.");
                 //System.exit(0);
@@ -78,6 +76,8 @@ public class Main extends Application {
         } catch (UnknownHostException e) {
             e.printStackTrace();
             System.exit(0);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
@@ -108,11 +108,12 @@ public class Main extends Application {
 
         });
 
-        menuItems[2] = new MenuItem("Raum wechseln");
+        menuItems[2] = new MenuItem("Zu Elektronik-Labor wechseln");
         menuItems[2].setOnAction(event -> {
             if (onSNLab) {
+                menuItems[2].setText("Zu SN-Labor wechseln");
                 onSNLab = false;
-                sceneHeight = 600;
+                sceneHeight = 620;
                 sceneWidth = 880;
 
                 for (int i = 0; i < 6; ++i) {
@@ -136,6 +137,7 @@ public class Main extends Application {
                 menubar.setPrefWidth(sceneWidth);
                 group2.getChildren().add(menubar);
             } else {
+                menuItems[2].setText("Zu Elektronik-Labor wechseln");
                 onSNLab = true;
                 sceneHeight = 620;
                 sceneWidth = 700;
@@ -156,7 +158,6 @@ public class Main extends Application {
                 }
 
                 primaryStage.setScene(scene);
-
                 menubar.setPrefWidth(sceneWidth);
                 group.getChildren().add(menubar);
             }
@@ -189,9 +190,7 @@ public class Main extends Application {
         menu.getItems().addAll(menuItems);
         menubar.setPrefWidth(scene.getWidth());
         menubar.getMenus().add(menu);
-        menubar.setPrefHeight(25);
         menubar.setMinHeight(25);
-
         group.getChildren().add(menubar);
 
         primaryStage.setTitle("NetworkManager");

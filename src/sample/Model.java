@@ -211,6 +211,8 @@ class PingComputer implements Runnable {
         this.main = main;
     }
 
+    public PingComputer() {
+    }
 
     /**
      * @param computer Computer, der gepingt werden soll
@@ -224,7 +226,7 @@ class PingComputer implements Runnable {
             e.printStackTrace();
         }
         if (inetAddress != null) {
-            if (inetAddress.isReachable(2000)) //*Der Computer muss Innerhalb von 2 Sek antworten, sonst wird er als nichterreichbar eingestuft
+            if (inetAddress.isReachable(1000)) //*Der Computer muss Innerhalb von 2 Sek antworten, sonst wird er als nichterreichbar eingestuft
                 return true;
             else
                 return false;

@@ -18,6 +18,10 @@ public class Computer {
     private double stdlabelx;
     private double stdlabely;
 
+    public Computer(String ip) {
+        this.ip = ip;
+    }
+
     public Computer(String ip, String mac, ImageView imageView, Label label) {
         this.ip = ip;
         this.mac = mac;

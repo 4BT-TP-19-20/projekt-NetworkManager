@@ -25,279 +25,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_06_2020_20_56_[Default]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_06_2020_20_56__Default_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/NetworkManager.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/NetworkManager.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-console-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-datetime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-debug-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-errorhandling-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-file-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-file-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-file-l2-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-handle-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-interlocked-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-libraryloader-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-localization-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-memory-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-namedpipe-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-processenvironment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-processthreads-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-processthreads-l1-1-1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-profile-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-rtlsupport-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-synch-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-synch-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-sysinfo-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-timezone-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-core-util-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-conio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-convert-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-environment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-filesystem-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-locale-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-math-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-multibyte-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-private-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-process-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-runtime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-stdio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-time-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/api-ms-win-crt-utility-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/app/NetworkManager.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/app/NetworkManager.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/msvcp140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/packager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/COPYRIGHT" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/THIRDPARTYLICENSEREADME-JAVAFX.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/THIRDPARTYLICENSEREADME.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/Welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/JAWTAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/JavaAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/WindowsAccessBridge-64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-console-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-datetime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-debug-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-errorhandling-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-file-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-file-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-file-l2-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-handle-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-interlocked-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-libraryloader-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-localization-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-memory-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-namedpipe-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-processenvironment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-processthreads-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-processthreads-l1-1-1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-profile-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-synch-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-synch-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-sysinfo-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-timezone-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-core-util-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-conio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-convert-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-environment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-filesystem-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-locale-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-math-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-multibyte-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-private-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-process-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-runtime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-stdio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-time-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/api-ms-win-crt-utility-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/attach.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/awt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/bci.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/concrt140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/dcpr.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/decora_sse.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/deploy.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/dt_shmem.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/dt_socket.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/fontmanager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/fxplugins.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/glass.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/glib-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/gstreamer-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/hprof.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/instrument.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/j2pcsc.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/j2pkcs11.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jaas_nt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/java.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/java_crw_demo.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/javafx_font.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/javafx_iio.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jawt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jdwp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jfr.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jfxmedia.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jfxwebkit.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jli.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jpeg.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jsdt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jsound.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/jsoundds.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/lcms.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/management.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/mlib_image.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/msvcp140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/net.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/nio.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/npt.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/plugin2/msvcr100.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/plugin2/npjp2.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/prism_common.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/prism_d3d.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/prism_sw.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/resource.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/sawindbg.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/server/Xusage.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/server/classes.jsa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/server/jvm.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/splashscreen.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/sunec.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/sunmscapi.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/t2k.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/ucrtbase.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/unpack.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/vcruntime140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/verify.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/w2k_lsa_auth.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/bin/zip.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/accessibility.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/amd64/jvm.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/calendars.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/charsets.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/classlist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/cmm/CIEXYZ.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/cmm/GRAY.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/cmm/LINEAR_RGB.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/cmm/PYCC.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/cmm/sRGB.pf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/content-types.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/currency.data" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/access-bridge-64.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/cldrdata.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/dnsns.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/jaccess.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/jfxrt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/localedata.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/meta-index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/nashorn.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/sunec.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/sunjce_provider.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/sunmscapi.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/sunpkcs11.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/ext/zipfs.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/flavormap.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fontconfig.bfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fontconfig.properties.src" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaBrightDemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaBrightDemiItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaBrightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaBrightRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaSansDemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaSansRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaTypewriterBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/fonts/LucidaTypewriterRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/hijrah-config-umalqura.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/cursors.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/invalid32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_CopyDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_CopyNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_LinkDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_LinkNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_MoveDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/images/cursors/win32_MoveNoDrop32x32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/javafx.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/javaws.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jce.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jfr.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jfr/default.jfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jfr/profile.jfc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jfxswt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jsse.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/jvm.hprof.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/management-agent.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/management/jmxremote.access" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/management/jmxremote.password.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/management/management.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/management/snmp.acl.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/meta-index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/net.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/plugin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/psfont.properties.ja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/psfontj2d.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/resources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/rt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/blacklist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/blacklisted.certs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/cacerts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/java.policy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/java.security" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/javaws.policy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/policy/limited/US_export_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/policy/limited/local_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/policy/unlimited/US_export_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/policy/unlimited/local_policy.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/security/trusted.libraries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/sound.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/tzdb.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/runtime/lib/tzmappings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/ucrtbase.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/vcruntime140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TP_Projekt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/NetworkManager.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TP_Projekt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NetworkManager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/PC_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/TP_Projekt.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager.jnlp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/computer.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/computer2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/PC_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/TP_Projekt.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/NetworkManager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/TP_Projekt.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/TP_Projekt.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/NetworkManager.jnlp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/computer.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/computer2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/NetworkManager/bundles/NetworkManager/NetworkManager.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TP_Projekt3/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Computer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/PingComputer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/RemoteAccess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/WakeOnLan$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/WakeOnLan$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TP_Projekt/sample/WakeOnLan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/WakeOnLan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/PingComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/PingComputer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NetworkManager/sample/RemoteAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NetworkManager/sample/RemoteAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Computer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Model.java" afterDir="false" />
     </list>
@@ -599,7 +334,8 @@
       <workItem from="1591022245858" duration="91000" />
       <workItem from="1591448051661" duration="5751000" />
       <workItem from="1591478659048" duration="755000" />
-      <workItem from="1591556177536" duration="3085000" />
+      <workItem from="1591556177536" duration="6362000" />
+      <workItem from="1591608265418" duration="2820000" />
     </task>
     <task id="LOCAL-00001" summary="smallFixes">
       <created>1590610354241</created>
@@ -637,10 +373,10 @@
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1590875453144">
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1591608449720">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1590875453144" />
+    <state x="488" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1591608449720" />
     <state x="550" y="162" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590418322816">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -661,22 +397,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="504" y="91" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1591559276596" />
-    <state width="1323" height="170" key="GridCell.Tab.0.bottom" timestamp="1591559280944">
+    <state width="1323" height="312" key="GridCell.Tab.0.bottom" timestamp="1591610642076">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="170" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591559280944" />
-    <state width="1323" height="170" key="GridCell.Tab.0.center" timestamp="1591559280944">
+    <state width="1323" height="312" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591610642076" />
+    <state width="1323" height="312" key="GridCell.Tab.0.center" timestamp="1591610642076">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="170" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1591559280944" />
-    <state width="1323" height="170" key="GridCell.Tab.0.left" timestamp="1591559280944">
+    <state width="1323" height="312" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1591610642076" />
+    <state width="1323" height="312" key="GridCell.Tab.0.left" timestamp="1591610642076">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="170" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1591559280944" />
-    <state width="1323" height="170" key="GridCell.Tab.0.right" timestamp="1591559280944">
+    <state width="1323" height="312" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1591610642076" />
+    <state width="1323" height="312" key="GridCell.Tab.0.right" timestamp="1591610642076">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="170" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1591559280944" />
+    <state width="1323" height="312" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1591610642076" />
     <state width="1323" height="219" key="GridCell.Tab.1.bottom" timestamp="1590852407666">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -697,18 +433,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="395" y="84" key="MultipleFileMergeDialog/0.0.1366.738@0.0.1366.738" timestamp="1590183029203" />
-    <state x="282" y="14" width="998" height="708" key="SettingsEditor" timestamp="1591558225103">
+    <state x="282" y="14" width="998" height="708" key="SettingsEditor" timestamp="1591611114704">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="282" y="14" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1591558225103" />
+    <state x="282" y="14" width="998" height="708" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1591611114704" />
     <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1587898367688">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1587898367688" />
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591556193905">
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591562901256">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1591556193905" />
+    <state x="492" y="285" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1591562901256" />
     <state x="131" y="43" key="new project wizard" timestamp="1589488908295">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
