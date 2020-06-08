@@ -1,10 +1,13 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.Alert;
-import javafx.stage.StageStyle;
+import javafx.scene.image.Image;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
@@ -241,6 +244,7 @@ class PingComputer implements Runnable {
         return false;
     }
 
+
     /**
      * Thread wird benötigt weil sonst das Hauptprogramm aufgehalten wird
      */
@@ -252,9 +256,10 @@ class PingComputer implements Runnable {
                     main.changeToGreen(this.computer);
                 });
             } else {
-                Platform.runLater(() -> {
-                    main.changeToRed(this.computer);
-                });
+                if (computer.getColor().equals("GREEN"))
+                    Platform.runLater(() -> {
+                        main.changeToRed(this.computer);
+                    });
             }
         } catch (IOException e) {
             e.printStackTrace();

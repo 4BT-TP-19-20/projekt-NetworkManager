@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="NetworkManager.jnlp">
+  <information>
+    <title>NetworkManager</title>
+    <vendor>Simon Niederwolfsgruber, Philipp Gruber, Matias Brandlechner</vendor>
+    <description>NetworkManager</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="NetworkManager.jar" size="21286" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="700" height="620" main-class="sample.Main"  name="NetworkManager" />
+  <update check="background"/>
+</jnlp>

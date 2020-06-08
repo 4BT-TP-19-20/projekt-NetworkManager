@@ -17,6 +17,7 @@ public class Computer {
     private double stdy;
     private double stdlabelx;
     private double stdlabely;
+    private String color;
 
     public Computer(String ip) {
         this.ip = ip;
@@ -79,5 +80,13 @@ public class Computer {
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

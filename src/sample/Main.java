@@ -274,6 +274,7 @@ public class Main extends Application {
                 computer[i][j].setStdy(computer[i][j].getImageView().getY());
                 computer[i][j].setStdlabelx(computer[i][j].getLabel().getLayoutX());
                 computer[i][j].setStdlabely(computer[i][j].getLabel().getLayoutY());
+                changeToRed(computer[i][j]);
                 ++labelCount;
             }
             xCoord += 100;
@@ -305,6 +306,7 @@ public class Main extends Application {
         t.schedule(new TimerTask() {
             @Override
             public void run() {
+                System.out.println("ping");
                 for (int i = 0; i < 4; ++i) {
                     for (int j = 0; j < 6; ++j) {
                         Thread t = new Thread(new PingComputer(computer[i][j], m));
@@ -388,6 +390,7 @@ public class Main extends Application {
                 computer2[i][j].setStdy(computer2[i][j].getImageView().getY());
                 computer2[i][j].setStdlabelx(computer2[i][j].getLabel().getLayoutX());
                 computer2[i][j].setStdlabely(computer2[i][j].getLabel().getLayoutY());
+                changeToRed(computer2[i][j]);
                 ++labelCount;
             }
             xCoord += 80;
@@ -598,6 +601,7 @@ public class Main extends Application {
         colorAdjust.setBrightness(0);
         colorAdjust.setSaturation(1);
         computer.getImageView().setEffect(colorAdjust);
+        computer.setColor("RED");
     }
 
     /**
@@ -612,15 +616,9 @@ public class Main extends Application {
         colorAdjust.setBrightness(0);
         colorAdjust.setSaturation(1);
         computer.getImageView().setEffect(colorAdjust);
+        computer.setColor("GREEN");
     }
 
-    public void showDialog(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("MessageBox");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.show();
-    }
 
     /**
      * ändert die Farbe des übergebenen Computers zu weiß
@@ -631,8 +629,8 @@ public class Main extends Application {
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setSaturation(0);
         computer.getImageView().setEffect(colorAdjust);
+        computer.setColor("WHITE");
     }
-
 
     public static void main(String[] args) {
         launch(args);
