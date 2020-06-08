@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,14 +65,15 @@ public class Main extends Application {
         }
 
         //Wenn man VPN hot donn kimp net richtige IP
-
         try {
             Computer c = new Computer("10.10.30.15");
             PingComputer pc = new PingComputer(c, this);
             if (!(pc.pingComputer(c))) {
-                JOptionPane.showMessageDialog(null, "Falls du durch das VPN mit dem Schulnetz verbunden bist drücke OK\n" +
-                        "Andernfalls starte die VPN-Verbindung oder verbinde dich direkt mit dem SN-Netz, um das Programm richtig nutzen zu können.");
-                //System.exit(0);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warnung");
+                alert.setContentText("Du befindest dich wahrscheinlich nicht im Schulnetzwerk!\n" +
+                        "Verbinde dich mit dem Schulnetzwerk, um das Programm richtig nutzen zu können.");
+                alert.showAndWait();
             }
         } catch (UnknownHostException e) {
             e.printStackTrace();

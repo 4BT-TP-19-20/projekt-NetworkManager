@@ -1,6 +1,8 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -31,7 +33,7 @@ class WakeOnLan implements Runnable {
      *
      * @param computer Computer der aufgeweckt werden soll
      */
-    public void wakeOnLan(Computer computer) {
+    public void wakeOnLan(Computer computer) { //Methode wird nicht verwendet, weil zu inkonsistent
 
         String ipStr = computer.getIp();
         String macStr = computer.getMac();
@@ -172,7 +174,7 @@ class WakeOnLan implements Runnable {
             PingComputer pc = new PingComputer(computer, main);
             long time2 = System.currentTimeMillis();
             while (!pc.pingComputer(computer)) {
-                if ((time2 - time1) > 120000) {
+                if ((time2 - time1) > 5000) {
                     t.cancel();
                     throw new Exception();
                 }
@@ -186,8 +188,12 @@ class WakeOnLan implements Runnable {
         } catch (Exception e) {
             Platform.runLater(() -> {
                 main.changeToRed(computer);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Meldung");
+                alert.setContentText("PC konnte nicht aufgeweckt werden!");
+                alert.show();
             });
-            JOptionPane.showMessageDialog(null, "PC konnte nicht aufgeweckt werden!");
+
         }
     }
 
